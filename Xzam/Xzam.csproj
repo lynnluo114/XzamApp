@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Xzam</RootNamespace>
     <AssemblyName>Xzam</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,14 +47,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmQuestionSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuestionSetup.Designer.cs">
+      <DependentUpon>frmQuestionSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Option.cs" />
+    <Compile Include="Models\OptionCollection.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\QuestionBank.cs" />
+    <Compile Include="Models\QuestionCollection.cs" />
+    <Compile Include="DA\QuestionBankDataAccess.cs" />
+    <Compile Include="DBConnection.cs" />
     <Compile Include="frmSchedulerCreation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmSchedulerCreation.Designer.cs">
       <DependentUpon>frmSchedulerCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQuestionBankForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuestionBankForm.Designer.cs">
+      <DependentUpon>frmQuestionBankForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shuffler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmQuestionSetup.resx">
+      <DependentUpon>frmQuestionSetup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +86,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="frmQuestionBankForm.resx">
+      <DependentUpon>frmQuestionBankForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -76,6 +104,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

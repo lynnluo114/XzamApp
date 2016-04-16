@@ -16,7 +16,7 @@ namespace Xzam
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSchedulerCreation());
+            Application.Run(new frmQuestionBankSetup());
         }
     }
 }
