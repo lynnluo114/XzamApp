@@ -99,13 +99,20 @@ namespace Xzam.Models
 
         }
 
-        public QuestionBank(int id, String Name)
+        public QuestionBank(int id, String name)
         {
             Name = name;
             ID = id;
             questionList = new QuestionCollection();
         }
-
+        public QuestionBank(int id, String name, Boolean backtrack, Boolean shufflequestions)
+        {
+            Name = name;
+            ID = id;
+            BackTrack = backtrack;
+            ShuffleQuestions = shufflequestions;
+            questionList = new QuestionCollection();
+        }
         public void Clear()
         {
 

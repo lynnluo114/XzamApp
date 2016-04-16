@@ -38,10 +38,25 @@ namespace Xzam
         public static int ExecuteSQL(string dmlstatement){
             
             cmd = new SqlCommand(dmlstatement, conn);
- 
+             
             return cmd.ExecuteNonQuery();
         }
+        public static int ExecuteWithParam(string dmlstatement, SqlParameter[] inputparameters, string outParamName) {
 
+            cmd = new SqlCommand(dmlstatement, conn);
+            foreach (SqlParameter item in inputparameters)
+	        {
+		        cmd.Parameters.Add(item);
+	        } 
+             
+            int result = 0;
+            int rowsaffected = cmd.ExecuteNonQuery();
+            if (rowsaffected > 0)
+            {
+                result = int.Parse(cmd.Parameters[outParamName].Value.ToString());
+            }
+            return result;
+        }
         public static SqlDataReader ReadData(string selectstatement){
             cmd.CommandText = selectstatement;
             reader = cmd.ExecuteReader();
