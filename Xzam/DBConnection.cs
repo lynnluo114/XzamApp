@@ -29,8 +29,11 @@ namespace Xzam
                     conn.Open();
         }
         public static void Disconnect(){
-            if(conn!=null)
-                conn.Close();
+            if (conn != null) { 
+                if (conn.State == System.Data.ConnectionState.Open) {
+                    conn =null;
+                }
+            }
         }
 
  
@@ -41,14 +44,20 @@ namespace Xzam
              
             return cmd.ExecuteNonQuery();
         }
-        public static int ExecuteWithParam(string dmlstatement, SqlParameter[] inputparameters, string outParamName) {
+        public static int ExecuteWithParam(string dmlstatement, SqlParameter[] parameters)
+        {
 
             cmd = new SqlCommand(dmlstatement, conn);
-            foreach (SqlParameter item in inputparameters)
-	        {
-		        cmd.Parameters.Add(item);
-	        } 
-             
+            cmd.Parameters.AddRange(parameters);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            
+            return cmd.ExecuteNonQuery(); ;
+        }
+        public static int ExecuteWithParam(string dmlstatement, SqlParameter[] parameters, string outParamName) {
+
+            cmd = new SqlCommand(dmlstatement, conn);
+            cmd.Parameters.AddRange(parameters);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
             int result = 0;
             int rowsaffected = cmd.ExecuteNonQuery();
             if (rowsaffected > 0)
@@ -58,10 +67,17 @@ namespace Xzam
             return result;
         }
         public static SqlDataReader ReadData(string selectstatement){
-            cmd.CommandText = selectstatement;
-            reader = cmd.ExecuteReader();
-            return reader;
+            cmd = new SqlCommand(selectstatement,conn); 
+            return  cmd.ExecuteReader(); 
         }
-         
+        public static SqlDataReader ReadDataProc(string selectstatement,SqlParameter[] param)
+        {
+            cmd.CommandText = selectstatement;
+            if (param != null) 
+                cmd.Parameters.AddRange( param);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+           return cmd.ExecuteReader();
+             
+        }
     }
 }

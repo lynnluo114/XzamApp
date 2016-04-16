@@ -16,36 +16,29 @@ namespace Xzam.DA
             XDbConnection.Disconnect();
         }
 
-        public void SaveData(QuestionBank qbank) { 
+        public int SaveData(QuestionBank qbank) { 
             if(qbank==null){
                 throw new Exception("No data found to save");
             }
+            int id;
             try
             {
                 SqlParameter[] scol =new SqlParameter[4]; 
-                scol[0] = new SqlParameter("@name", qbank.Name);
-                scol[1]=new SqlParameter("@backtrack", qbank.Name);
-                scol[2]=new SqlParameter("@shufflequestions", qbank.Name);
+                scol[0] = new SqlParameter("@name", qbank.Name); 
+                scol[1]=new SqlParameter("@backtrack", qbank.BackTrack); 
+                scol[2]=new SqlParameter("@shufflequestions", qbank.ShuffleQuestions);
                 scol[3] = new SqlParameter();
                 scol[3].ParameterName = "@id";
+                scol[3].SqlDbType = System.Data.SqlDbType.Int;
                 scol[3].Direction = System.Data.ParameterDirection.Output;
-                int id = XDbConnection.ExecuteWithParam("proc_saveData",scol,"@id"); 
-                        /*
-                        String.Format("INSERT INTO [dbo].[QuestionBank]" +
-                   "([name]" +
-                   ",[backtrack]" +
-                   ",[shufflequestions])" +
-                " VALUES" +
-                   "('{0}'" +
-                   ",{1}" +
-                   ",{2})", qbank.Name, (qbank.BackTrack ? 1 : 0), (qbank.ShuffleQuestions ? 1 : 0)));
-             */
+                 id = XDbConnection.ExecuteWithParam("proc_saveQuestionBank",scol,"@id");
+                 return id;
             }
             catch (Exception)
             {
                 
                 throw;
-            }
+            } 
             
         }
         public void UpdateData(QuestionBank qbank) {
@@ -56,17 +49,18 @@ namespace Xzam.DA
  
 
             try 
-	        {	        
-		            XDbConnection.ExecuteSQL(String.Format("update  [dbo].[QuestionBank]" +
-                   "set name='{0}'" +
-                   ",set backtrack={1}" +
-                   ",shufflequestions={2} where id={3}"  , 
-                   qbank.Name, (qbank.BackTrack ? 1 : 0), (qbank.ShuffleQuestions ? 1 : 0),qbank.ID));
-	        }
-	        catch (Exception e)
 	        {
-		
-		        throw new Exception(e.Message);
+                SqlParameter[] scol = new SqlParameter[4];
+                scol[0] = new SqlParameter("@name", qbank.Name);
+                scol[1] = new SqlParameter("@backtrack", qbank.BackTrack);
+                scol[2] = new SqlParameter("@shufflequestions", qbank.ShuffleQuestions);
+                scol[3] = new SqlParameter("@id",qbank.ID); 
+                int id = XDbConnection.ExecuteWithParam("proc_updateQuestionBank",scol); 
+	        }
+	        catch (Exception)
+	        {
+
+                throw;
 	        }
              
         }
@@ -74,7 +68,7 @@ namespace Xzam.DA
         public List<QuestionBank> GetList() {
              List<QuestionBank> qblist = new List<QuestionBank>();
             QuestionBank qb;
-            using (SqlDataReader sdr = XDbConnection.ReadData(String.Format("Select id,name,backtrack,shufflequestions from questionbank")))
+            using (SqlDataReader sdr = XDbConnection.ReadData("proc_getQuestionBank"))
             {
                 while (sdr.Read())
                 {

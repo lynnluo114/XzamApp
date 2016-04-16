@@ -34,7 +34,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupDetails = new System.Windows.Forms.GroupBox();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAddQuestion = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,7 +46,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvwQuestionBank
@@ -57,9 +57,10 @@
             this.columnHeader3,
             this.columnHeader4});
             this.lvwQuestionBank.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvwQuestionBank.FullRowSelect = true;
             this.lvwQuestionBank.Location = new System.Drawing.Point(8, 21);
             this.lvwQuestionBank.Name = "lvwQuestionBank";
-            this.lvwQuestionBank.Size = new System.Drawing.Size(637, 103);
+            this.lvwQuestionBank.Size = new System.Drawing.Size(522, 103);
             this.lvwQuestionBank.TabIndex = 0;
             this.lvwQuestionBank.UseCompatibleStateImageBehavior = false;
             this.lvwQuestionBank.View = System.Windows.Forms.View.Details;
@@ -92,32 +93,31 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 18);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(8);
-            this.groupBox1.Size = new System.Drawing.Size(653, 132);
+            this.groupBox1.Size = new System.Drawing.Size(538, 132);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Questions";
             // 
-            // groupBox2
+            // groupDetails
             // 
-            this.groupBox2.Controls.Add(this.btnRemove);
-            this.groupBox2.Controls.Add(this.btnSave);
-            this.groupBox2.Controls.Add(this.btnAddQuestion);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.lstQuestions);
-            this.groupBox2.Controls.Add(this.chkShuffleQuestions);
-            this.groupBox2.Controls.Add(this.chkBackTracking);
-            this.groupBox2.Controls.Add(this.txtName);
-            this.groupBox2.Controls.Add(this.lblName);
-            this.groupBox2.Location = new System.Drawing.Point(12, 193);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(653, 347);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Details";
+            this.groupDetails.Controls.Add(this.btnRemove);
+            this.groupDetails.Controls.Add(this.btnAddQuestion);
+            this.groupDetails.Controls.Add(this.label1);
+            this.groupDetails.Controls.Add(this.lstQuestions);
+            this.groupDetails.Controls.Add(this.chkShuffleQuestions);
+            this.groupDetails.Controls.Add(this.chkBackTracking);
+            this.groupDetails.Controls.Add(this.txtName);
+            this.groupDetails.Controls.Add(this.lblName);
+            this.groupDetails.Location = new System.Drawing.Point(12, 156);
+            this.groupDetails.Name = "groupDetails";
+            this.groupDetails.Size = new System.Drawing.Size(633, 286);
+            this.groupDetails.TabIndex = 2;
+            this.groupDetails.TabStop = false;
+            this.groupDetails.Text = "Details";
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(609, 126);
+            this.btnRemove.Location = new System.Drawing.Point(583, 102);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(36, 23);
             this.btnRemove.TabIndex = 5;
@@ -126,7 +126,7 @@
             // 
             // btnAddQuestion
             // 
-            this.btnAddQuestion.Location = new System.Drawing.Point(567, 126);
+            this.btnAddQuestion.Location = new System.Drawing.Point(541, 102);
             this.btnAddQuestion.Name = "btnAddQuestion";
             this.btnAddQuestion.Size = new System.Drawing.Size(36, 23);
             this.btnAddQuestion.TabIndex = 4;
@@ -136,7 +136,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(92, 139);
+            this.label1.Location = new System.Drawing.Point(56, 115);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 1;
@@ -145,15 +145,15 @@
             // lstQuestions
             // 
             this.lstQuestions.FormattingEnabled = true;
-            this.lstQuestions.Location = new System.Drawing.Point(95, 155);
+            this.lstQuestions.Location = new System.Drawing.Point(59, 131);
             this.lstQuestions.Name = "lstQuestions";
-            this.lstQuestions.Size = new System.Drawing.Size(550, 134);
+            this.lstQuestions.Size = new System.Drawing.Size(560, 134);
             this.lstQuestions.TabIndex = 0;
             // 
             // chkShuffleQuestions
             // 
             this.chkShuffleQuestions.AutoSize = true;
-            this.chkShuffleQuestions.Location = new System.Drawing.Point(95, 104);
+            this.chkShuffleQuestions.Location = new System.Drawing.Point(59, 81);
             this.chkShuffleQuestions.Name = "chkShuffleQuestions";
             this.chkShuffleQuestions.Size = new System.Drawing.Size(109, 17);
             this.chkShuffleQuestions.TabIndex = 3;
@@ -163,7 +163,7 @@
             // chkBackTracking
             // 
             this.chkBackTracking.AutoSize = true;
-            this.chkBackTracking.Location = new System.Drawing.Point(95, 71);
+            this.chkBackTracking.Location = new System.Drawing.Point(59, 58);
             this.chkBackTracking.Name = "chkBackTracking";
             this.chkBackTracking.Size = new System.Drawing.Size(129, 17);
             this.chkBackTracking.TabIndex = 2;
@@ -172,7 +172,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(95, 35);
+            this.txtName.Location = new System.Drawing.Point(59, 32);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(176, 20);
             this.txtName.TabIndex = 1;
@@ -180,7 +180,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(33, 35);
+            this.lblName.Location = new System.Drawing.Point(18, 35);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(35, 13);
             this.lblName.TabIndex = 0;
@@ -188,7 +188,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(567, 307);
+            this.btnSave.Location = new System.Drawing.Point(556, 56);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 3;
@@ -198,7 +198,7 @@
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(582, 164);
+            this.btnNew.Location = new System.Drawing.Point(556, 27);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 4;
@@ -210,15 +210,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(685, 576);
+            this.ClientSize = new System.Drawing.Size(662, 467);
             this.Controls.Add(this.btnNew);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.groupDetails);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmQuestionBankSetup";
             this.Text = "QuestionBankForm";
+            this.Load += new System.EventHandler(this.frmQuestionBankSetup_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupDetails.ResumeLayout(false);
+            this.groupDetails.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -231,7 +233,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupDetails;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.CheckBox chkShuffleQuestions;
         private System.Windows.Forms.CheckBox chkBackTracking;
