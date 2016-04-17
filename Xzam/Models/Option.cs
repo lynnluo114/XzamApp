@@ -10,7 +10,26 @@ namespace Xzam.Models
     {
         private char code;
         private String _value;
-
+        private Question question;
+        private int oid;
+        public int OId {
+            get { return oid; }
+            set { oid = value; }
+        }
+        public Question Quest {
+            get {
+                return question;
+            }
+            set {
+                if (value == null) {
+                    throw new Exception("Question is not associated");
+                }
+                question = value;
+            }
+        }
+        public Option() {
+            
+        }
         public char Code
         {
             get { return code; }
@@ -35,10 +54,11 @@ namespace Xzam.Models
                 this._value = value;
             }
         }
-        public Option(char code, String value)
+        public Option(char code, String value, Question question)
         {
             Code = code;
             Value = value;
+            Quest = question;
         }
     }
 }

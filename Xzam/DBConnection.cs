@@ -72,6 +72,7 @@ namespace Xzam
         }
         public static SqlDataReader ReadDataProc(string selectstatement,SqlParameter[] param)
         {
+            cmd = new SqlCommand(selectstatement, conn); 
             cmd.CommandText = selectstatement;
             if (param != null) 
                 cmd.Parameters.AddRange( param);

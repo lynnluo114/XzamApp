@@ -39,7 +39,7 @@ namespace Xzam.Models
                     throw new Exception("Option with the same code already exists");
                 }
             }
-            options.Add(new Option(code, value));
+            options.Add(new Option(code, value,null));
         }
         public void AddOption(Option option)
         {

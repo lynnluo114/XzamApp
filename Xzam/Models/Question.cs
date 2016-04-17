@@ -14,6 +14,13 @@ namespace Xzam.Models
         private OptionCollection options;
         private String questionTitle;
         private Boolean shuffleOptions;
+        private int questionbankid;
+
+        public int Questionbankid
+        {
+            get { return questionbankid; }
+            set { questionbankid = value; }
+        }
         private double gradePoint = 1;
         public int QuestionID
         {
@@ -78,24 +85,44 @@ namespace Xzam.Models
             }
 
         }
+        public Question() {
+            options = new OptionCollection();
+        }
         public Question(int questionID, String questionTitle, Char correctOption)
         {
             QuestionTitle = questionTitle;
             CorrectOption = correctOption;
             options = new OptionCollection();
         }
-        public Question(int questionID, String questionTitle, Char correctOption, Boolean shuffleOptions)
+        public Question(int questionID, String questionTitle, Char correctOption, Boolean shuffleOptions,double gradepoint, int questionbankid)
         {
+            QuestionID = questionID;
             QuestionTitle = questionTitle;
             CorrectOption = correctOption;
             ShuffleOptions = shuffleOptions;
-
+            GradePoint = gradepoint;
+            Questionbankid =questionbankid;
             this.options = new OptionCollection();
         }
-        public Question(int questionID, String questionTitle, Char correctOption, OptionCollection collection)
+        public OptionCollection Options {
+            get {
+                return this.options;
+                
+            }
+        }
+
+        public void Clear() {
+            this.options = null;
+            this.options = new OptionCollection();
+        }
+        public Question(int questionID, String questionTitle, Char correctOption, Boolean shuffleOptions,double gradepoint, int questionbankid, OptionCollection collection)
         {
+            QuestionID = questionID;
             QuestionTitle = questionTitle;
             CorrectOption = correctOption;
+            ShuffleOptions = shuffleOptions;
+            GradePoint = gradepoint;
+            Questionbankid = questionbankid;
             if (collection != null)
                 options.AddOptionRange(collection);
 

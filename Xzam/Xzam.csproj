@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DA\OptionDataAccess.cs" />
+    <Compile Include="DA\QuestionDataAccess.cs" />
     <Compile Include="frmQuestionSetup.cs">
       <SubType>Form</SubType>
     </Compile>

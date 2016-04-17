@@ -64,7 +64,23 @@ namespace Xzam.DA
 	        }
              
         }
+        public void DeleteData(int questionbankid)
+        {
+            try
+            {
+                //(@title nvarchar(50), @gradepoint bit,@shuffleoptions bit=0,@correctoption char(1),
+                //@qbankid int, @qid int output)  
+                SqlParameter[] scol = new SqlParameter[1];
+                scol[0] = new SqlParameter("@qbankid", questionbankid);
 
+                XDbConnection.ExecuteWithParam("proc_deleteQuestionBank", scol); ;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public List<QuestionBank> GetList() {
              List<QuestionBank> qblist = new List<QuestionBank>();
             QuestionBank qb;
