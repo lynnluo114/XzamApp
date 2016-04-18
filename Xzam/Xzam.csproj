@@ -47,14 +47,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DA\ExamDataAccess.cs" />
+    <Compile Include="DA\ExamScheduleDataAccess.cs" />
     <Compile Include="DA\OptionDataAccess.cs" />
     <Compile Include="DA\QuestionDataAccess.cs" />
+    <Compile Include="DA\StudentDataAccess.cs" />
+    <Compile Include="ExamCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamCreation.Designer.cs">
+      <DependentUpon>ExamCreation.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmQuestionSetup.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmQuestionSetup.Designer.cs">
       <DependentUpon>frmQuestionSetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Exam.cs" />
+    <Compile Include="Models\ExamSchedule.cs" />
     <Compile Include="Models\Option.cs" />
     <Compile Include="Models\OptionCollection.cs" />
     <Compile Include="Models\Question.cs" />
@@ -74,9 +85,14 @@
     <Compile Include="frmQuestionBankForm.Designer.cs">
       <DependentUpon>frmQuestionBankForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentCollection.cs" />
     <Compile Include="Shuffler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ExamCreation.resx">
+      <DependentUpon>ExamCreation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmQuestionSetup.resx">
       <DependentUpon>frmQuestionSetup.cs</DependentUpon>
     </EmbeddedResource>

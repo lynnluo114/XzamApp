@@ -9,3 +9,13 @@ C:\Users\Luja\Source\Repos\XzamApp\Xzam\obj\Debug\Xzam.frmQuestionBankSetup.reso
 C:\Users\Luja\Source\Repos\XzamApp\Xzam\obj\Debug\Xzam.exe
 C:\Users\Luja\Source\Repos\XzamApp\Xzam\obj\Debug\Xzam.pdb
 C:\Users\Luja\Source\Repos\XzamApp\Xzam\obj\Debug\Xzam.frmQuestionSetup.resources
+C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.exe
+C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.pdb
+C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\bin\Debug\Xzam.exe
+C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\bin\Debug\Xzam.pdb
+C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.csprojResolveAssemblyReference.cache
+C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.ExamSetup.resources
+C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.frmQuestionSetup.resources
+C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.Properties.Resources.resources
+C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.frmQuestionBankSetup.resources
+C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.csproj.GenerateResource.Cache
