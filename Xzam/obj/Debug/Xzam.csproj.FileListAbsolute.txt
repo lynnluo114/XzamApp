@@ -13,9 +13,9 @@ C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.exe
 C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.pdb
 C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\bin\Debug\Xzam.exe
 C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\bin\Debug\Xzam.pdb
-C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.csprojResolveAssemblyReference.cache
 C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.ExamSetup.resources
 C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.frmQuestionSetup.resources
 C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.Properties.Resources.resources
 C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.frmQuestionBankSetup.resources
 C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.csproj.GenerateResource.Cache
+C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.frmSchedulerCreation.resources

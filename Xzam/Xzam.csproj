@@ -52,11 +52,11 @@
     <Compile Include="DA\OptionDataAccess.cs" />
     <Compile Include="DA\QuestionDataAccess.cs" />
     <Compile Include="DA\StudentDataAccess.cs" />
-    <Compile Include="ExamCreation.cs">
+    <Compile Include="frmExamCreation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ExamCreation.Designer.cs">
-      <DependentUpon>ExamCreation.cs</DependentUpon>
+    <Compile Include="frmExamCreation.Designer.cs">
+      <DependentUpon>frmExamCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="frmQuestionSetup.cs">
       <SubType>Form</SubType>
@@ -65,6 +65,7 @@
       <DependentUpon>frmQuestionSetup.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Exam.cs" />
+    <Compile Include="Models\ExamCollection.cs" />
     <Compile Include="Models\ExamSchedule.cs" />
     <Compile Include="Models\Option.cs" />
     <Compile Include="Models\OptionCollection.cs" />
@@ -90,11 +91,14 @@
     <Compile Include="Shuffler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ExamCreation.resx">
-      <DependentUpon>ExamCreation.cs</DependentUpon>
+    <EmbeddedResource Include="frmExamCreation.resx">
+      <DependentUpon>frmExamCreation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuestionSetup.resx">
       <DependentUpon>frmQuestionSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSchedulerCreation.resx">
+      <DependentUpon>frmSchedulerCreation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

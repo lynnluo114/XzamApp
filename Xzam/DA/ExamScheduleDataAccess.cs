@@ -10,11 +10,9 @@ namespace Xzam.DA
 {
     class ExamScheduleDataAccess
     {
-        private ExamSchedule schedule;
-        public ExamScheduleDataAccess(ExamSchedule schedule)
+        public ExamScheduleDataAccess()
         {
             XDbConnection.Connect();
-            this.schedule = schedule;
         }
         ~ExamScheduleDataAccess()
         {

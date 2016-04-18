@@ -85,5 +85,11 @@ namespace Xzam.Models
             StudentID = studentID;
             StudentName = studentName;
         }
+
+        public Student(String studentID, int scheduleID)
+        {
+            StudentID = studentID;
+            ScheduleID = scheduleID;
+        }
     }
 }

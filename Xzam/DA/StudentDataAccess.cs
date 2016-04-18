@@ -10,11 +10,9 @@ namespace Xzam.DA
 {
     class StudentDataAccess
     {
-        private Student student;
-        public StudentDataAccess(Student student)
+        public StudentDataAccess()
         {
             XDbConnection.Connect();
-            this.student = student;
         }
         ~StudentDataAccess()
         {
@@ -32,7 +30,7 @@ namespace Xzam.DA
             {
                 SqlParameter[] scol = new SqlParameter[2];
                 scol[0] = new SqlParameter("@scheduleid", student.ScheduleID);
-                scol[1] = new SqlParameter("@gradepoint", student.StudentID);               
+                scol[1] = new SqlParameter("@studentid", student.StudentID);               
                 affectedRow = XDbConnection.ExecuteWithParam("proc_saveExamSchedule", scol);
                 return affectedRow;
             }
@@ -41,25 +39,6 @@ namespace Xzam.DA
                 throw;
             }
 
-        }
-
-        public int UpdateData(Student student)
-        {
-            if (student == null)
-            {
-                throw new Exception("No data found to update");
-            }
-            try
-            {
-                SqlParameter[] scol = new SqlParameter[2];
-                scol[0] = new SqlParameter("@qid", student.ScheduleID);
-                scol[1] = new SqlParameter("@code", student.StudentID);
-                return XDbConnection.ExecuteWithParam("proc_saveStudentSchedule", scol); ;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
         }
 
         public StudentCollection GetList()

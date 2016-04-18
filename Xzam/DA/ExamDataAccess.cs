@@ -10,11 +10,9 @@ namespace Xzam.DA
 {
     class ExamDataAccess
     {
-        private Exam exam;
-        public ExamDataAccess(Exam exam)
+        public ExamDataAccess()
         {
             XDbConnection.Connect();
-            this.exam = exam;
         }
         ~ExamDataAccess()
         {
@@ -40,6 +38,24 @@ namespace Xzam.DA
             {
                 throw;
             }
+        }
+
+        public ExamCollection GetList()
+        {
+            ExamCollection examlist = new ExamCollection();
+            Exam exam;
+
+            using (SqlDataReader sdr = XDbConnection.ReadDataProc("proc_getExams", null))
+            {
+                while (sdr.Read())
+                {
+                    exam = new Exam(sdr["examcode"].ToString(), sdr["examtitle"].ToString());
+                    examlist.AddExam(exam);
+                }
+                exam = null;
+                sdr.Close();// not necessary but still to be on the safe side
+            }
+            return examlist;
         }
     }
 }

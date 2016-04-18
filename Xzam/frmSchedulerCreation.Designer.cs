@@ -1,4 +1,6 @@
-﻿namespace Xzam
+﻿using System;
+
+namespace Xzam
 {
     partial class frmSchedulerCreation
     {
@@ -35,12 +37,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.but_Create = new System.Windows.Forms.Button();
-            this.but_Cancel = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.btnCreate = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.examCodeList = new System.Windows.Forms.ComboBox();
+            this.examTitleList = new System.Windows.Forms.ComboBox();
             this.list_Students = new System.Windows.Forms.ListBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.qbankList = new System.Windows.Forms.ComboBox();
             this.scheduledDate = new System.Windows.Forms.DateTimePicker();
             this.startTime = new System.Windows.Forms.DateTimePicker();
             this.endTime = new System.Windows.Forms.DateTimePicker();
@@ -109,39 +111,42 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "End Time:";
             // 
-            // but_Create
+            // btnCreate
             // 
-            this.but_Create.Location = new System.Drawing.Point(22, 361);
-            this.but_Create.Name = "but_Create";
-            this.but_Create.Size = new System.Drawing.Size(75, 23);
-            this.but_Create.TabIndex = 7;
-            this.but_Create.Text = "Create";
-            this.but_Create.UseVisualStyleBackColor = true;
+            this.btnCreate.Location = new System.Drawing.Point(22, 361);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(75, 23);
+            this.btnCreate.TabIndex = 7;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.but_Create_Click);
             // 
-            // but_Cancel
+            // btnCancel
             // 
-            this.but_Cancel.Location = new System.Drawing.Point(165, 361);
-            this.but_Cancel.Name = "but_Cancel";
-            this.but_Cancel.Size = new System.Drawing.Size(75, 23);
-            this.but_Cancel.TabIndex = 8;
-            this.but_Cancel.Text = "Cancel";
-            this.but_Cancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(165, 361);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // examCodeList
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(120, 13);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 9;
+            this.examCodeList.FormattingEnabled = true;
+            this.examCodeList.Location = new System.Drawing.Point(120, 13);
+            this.examCodeList.Name = "examCodeList";
+            this.examCodeList.Size = new System.Drawing.Size(121, 21);
+            this.examCodeList.TabIndex = 9;
+            this.examCodeList.SelectedIndexChanged += new System.EventHandler(this.examCodeList_SelectedIndexChanged);
             // 
-            // comboBox2
+            // examTitleList
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(120, 46);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 10;
+            this.examTitleList.FormattingEnabled = true;
+            this.examTitleList.Location = new System.Drawing.Point(120, 46);
+            this.examTitleList.Name = "examTitleList";
+            this.examTitleList.Size = new System.Drawing.Size(121, 21);
+            this.examTitleList.TabIndex = 10;
+            this.examTitleList.SelectedIndexChanged += new System.EventHandler(this.examTitleList_SelectedIndexChanged);
             // 
             // list_Students
             // 
@@ -151,13 +156,13 @@
             this.list_Students.Size = new System.Drawing.Size(200, 95);
             this.list_Students.TabIndex = 11;
             // 
-            // comboBox3
+            // qbankList
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(120, 213);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(200, 21);
-            this.comboBox3.TabIndex = 12;
+            this.qbankList.FormattingEnabled = true;
+            this.qbankList.Location = new System.Drawing.Point(120, 213);
+            this.qbankList.Name = "qbankList";
+            this.qbankList.Size = new System.Drawing.Size(200, 21);
+            this.qbankList.TabIndex = 12;
             // 
             // scheduledDate
             // 
@@ -192,12 +197,12 @@
             this.Controls.Add(this.endTime);
             this.Controls.Add(this.startTime);
             this.Controls.Add(this.scheduledDate);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.qbankList);
             this.Controls.Add(this.list_Students);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.but_Cancel);
-            this.Controls.Add(this.but_Create);
+            this.Controls.Add(this.examTitleList);
+            this.Controls.Add(this.examCodeList);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -207,6 +212,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmSchedulerCreation";
             this.Text = "Exam Scheduler Creation";
+            this.Load += new System.EventHandler(this.frmSchedulerCreation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,12 +227,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button but_Create;
-        private System.Windows.Forms.Button but_Cancel;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.ComboBox examCodeList;
+        private System.Windows.Forms.ComboBox examTitleList;
         private System.Windows.Forms.ListBox list_Students;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox qbankList;
         private System.Windows.Forms.DateTimePicker scheduledDate;
         private System.Windows.Forms.DateTimePicker startTime;
         private System.Windows.Forms.DateTimePicker endTime;

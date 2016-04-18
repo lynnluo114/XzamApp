@@ -12,9 +12,9 @@ namespace Xzam.Models
         private int questionBankID;
         private String examCode;
         private String examTitle;
-        private DateTime scheduleDate;
-        private DateTime startTime;
-        private DateTime endTime;
+        private String scheduleDate;
+        private String startTime;
+        private String endTime;
 
         public int ScheduleID
         {
@@ -53,46 +53,42 @@ namespace Xzam.Models
             }
         }
 
-        public DateTime ScheduleDate
+        public String ScheduleDate
         {
             get { return this.scheduleDate; }
             set
             {
-                if (value < DateTime.Now.Date)
-                {
-                    throw new Exception("Schedule Date must be later than current date!");
-                }
                 this.scheduleDate = value;
             }
         }
 
-        public DateTime StartTime
+        public String StartTime
         {
             get { return this.startTime; }
             set
             {
-                if (value < DateTime.Now)
+                /*if (value < DateTime.Now)
                 {
                     throw new Exception("Start Time must be later than now!");
-                }
+                }*/
                 this.startTime = value;
             }
         }
 
-        public DateTime EndTime
+        public String EndTime
         {
             get { return this.endTime; }
             set
             {
-                if (value < DateTime.Now)
+                /*if (value < DateTime.Now)
                 {
                     throw new Exception("End Time must be later than now!");
-                }
+                }*/
                 this.endTime = value;
             }
         }
 
-        public ExamSchedule(int scheduleID, int questionBankID, String examCode, DateTime scheduleDate, DateTime startTime, DateTime endTime)
+        public ExamSchedule(int scheduleID, int questionBankID, String examCode, String scheduleDate, String startTime, String endTime)
         {
             ScheduleID = scheduleID;
             QuestionBankID = questionBankID;

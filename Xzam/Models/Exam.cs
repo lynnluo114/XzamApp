@@ -36,5 +36,11 @@ namespace Xzam.Models
                 this.examTitle = value;
             }
         }
+
+        public Exam(String examCode, String examTitle)
+        {
+            ExamCode = examCode;
+            ExamTitle = examTitle;
+        }
     }
 }

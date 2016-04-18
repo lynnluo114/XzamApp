@@ -32,7 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.text_ExamCode = new System.Windows.Forms.TextBox();
             this.text_ExamTitle = new System.Windows.Forms.TextBox();
-            this.but_Setup = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -68,14 +68,15 @@
             this.text_ExamTitle.Size = new System.Drawing.Size(100, 20);
             this.text_ExamTitle.TabIndex = 3;
             // 
-            // but_Setup
+            // btnSave
             // 
-            this.but_Setup.Location = new System.Drawing.Point(27, 168);
-            this.but_Setup.Name = "but_Setup";
-            this.but_Setup.Size = new System.Drawing.Size(75, 23);
-            this.but_Setup.TabIndex = 4;
-            this.but_Setup.Text = "Setup";
-            this.but_Setup.UseVisualStyleBackColor = true;
+            this.btnSave.Location = new System.Drawing.Point(27, 168);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "Create";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // button2
             // 
@@ -92,7 +93,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.but_Setup);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.text_ExamTitle);
             this.Controls.Add(this.text_ExamCode);
             this.Controls.Add(this.label2);
@@ -110,7 +111,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox text_ExamCode;
         private System.Windows.Forms.TextBox text_ExamTitle;
-        private System.Windows.Forms.Button but_Setup;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button button2;
     }
 }
