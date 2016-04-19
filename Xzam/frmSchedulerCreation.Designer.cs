@@ -116,7 +116,7 @@ namespace Xzam
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(22, 381);
+            this.btnCreate.Location = new System.Drawing.Point(87, 399);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 7;
@@ -126,12 +126,13 @@ namespace Xzam
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(165, 381);
+            this.btnCancel.Location = new System.Drawing.Point(336, 399);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // examCodeList
             // 

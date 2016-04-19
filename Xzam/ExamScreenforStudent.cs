@@ -54,6 +54,7 @@ namespace Xzam
             _stu = stu;
             foreach (Question q in _qb.QuestionList)
                 totalPoints += q.GradePoint;
+            this.btnPrev.Visible = _qb.BackTrack;
         }
 
         private void LoadQuestion()
@@ -130,7 +131,7 @@ namespace Xzam
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Attempt score: " + points + " out of " + totalPoints);
-
+            sda.SaveGrade(_stu, points);
         }
     }
 }

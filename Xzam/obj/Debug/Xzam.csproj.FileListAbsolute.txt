@@ -20,4 +20,3 @@ C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.frmQuestionBankSetup.res
 C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.csproj.GenerateResource.Cache
 C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.frmSchedulerCreation.resources
 C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.ExamScreenforStudent.resources
-C:\Users\Lynn\Documents\GitHub\Xzam\Xzam\obj\Debug\Xzam.csprojResolveAssemblyReference.cache

@@ -31,7 +31,7 @@ namespace Xzam.DA
                 SqlParameter[] scol = new SqlParameter[2];
                 scol[0] = new SqlParameter("@scheduleid", student.ScheduleID);
                 scol[1] = new SqlParameter("@studentid", student.StudentID);               
-                affectedRow = XDbConnection.ExecuteWithParam("proc_saveExamSchedule", scol);
+                affectedRow = XDbConnection.ExecuteWithParam("proc_saveStduentSchedule", scol);
                 return affectedRow;
             }
             catch (Exception)

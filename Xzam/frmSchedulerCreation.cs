@@ -18,6 +18,7 @@ namespace Xzam
         private StudentDataAccess sda;
         private ExamScheduleDataAccess esda;
         private QuestionBankDataAccess qbda;
+        
 
         public frmSchedulerCreation()
         {
@@ -91,17 +92,21 @@ namespace Xzam
         {
             String examcode = examCodeList.SelectedItem.ToString();
             int qbankid = 0;
-            String studentid = "";
+            List<String> studentIDs = new List<String>();
             int scheduleid = 0;
             foreach (QuestionBank qbank in qbda.GetList())
             {
                 if (qbank.Name.Equals(qbankList.SelectedItem.ToString()))
                     qbankid = qbank.ID;
             }
-            foreach (Student stu in sda.GetList())
+
+            foreach (var item in attendStudentList.Items)
             {
-                if (stu.StudentName.Equals(studentList.SelectedItem.ToString()))
-                    studentid = stu.StudentID;
+                foreach (Student stu in sda.GetList())
+                {
+                    if (item.ToString().Equals(stu.StudentName))
+                        studentIDs.Add(stu.StudentID);
+                }
             }
             String scheduledate = scheduledDate.Value.ToShortDateString();
             String starttime = startTime.Value.ToShortTimeString();
@@ -110,8 +115,11 @@ namespace Xzam
             try
             {
                 scheduleid = esda.SaveData(es);
-                Student student = new Student(studentid, scheduleid);
-                sda.SaveData(student);
+                foreach (String studentID in studentIDs)
+                {
+                    Student student = new Student(studentID, scheduleid);
+                    sda.SaveData(student);
+                }
                 MessageBox.Show("Data saved successfully", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -160,6 +168,11 @@ namespace Xzam
                     attendStudentList.Items.Remove(attendStudentList.SelectedItems[0]);
                 }
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }   
 }
