@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Xzam.Models;
+using Xzam.DA;
 
 namespace Xzam
 {
@@ -14,9 +16,10 @@ namespace Xzam
         [STAThread]
         static void Main()
         {
+            QuestionDataAccess qda = new QuestionDataAccess();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSchedulerCreation());
+            Application.Run(new ExamScreenforStudent(new QuestionBank(qda.GetList(1))));
         }
     }
 }

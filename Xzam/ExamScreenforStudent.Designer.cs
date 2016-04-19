@@ -28,67 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblQuestionText = new System.Windows.Forms.Label();
-            this.opt1 = new System.Windows.Forms.RadioButton();
-            this.opt2 = new System.Windows.Forms.RadioButton();
-            this.opt3 = new System.Windows.Forms.RadioButton();
-            this.opt4 = new System.Windows.Forms.RadioButton();
             this.btnPrev = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblQuestionText = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lblQuestionText
-            // 
-            this.lblQuestionText.AutoSize = true;
-            this.lblQuestionText.Location = new System.Drawing.Point(34, 21);
-            this.lblQuestionText.Name = "lblQuestionText";
-            this.lblQuestionText.Size = new System.Drawing.Size(18, 13);
-            this.lblQuestionText.TabIndex = 0;
-            this.lblQuestionText.Text = "Q.";
-            // 
-            // opt1
-            // 
-            this.opt1.AutoSize = true;
-            this.opt1.Location = new System.Drawing.Point(37, 56);
-            this.opt1.Name = "opt1";
-            this.opt1.Size = new System.Drawing.Size(14, 13);
-            this.opt1.TabIndex = 1;
-            this.opt1.TabStop = true;
-            this.opt1.UseVisualStyleBackColor = true;
-            // 
-            // opt2
-            // 
-            this.opt2.AutoSize = true;
-            this.opt2.Location = new System.Drawing.Point(37, 92);
-            this.opt2.Name = "opt2";
-            this.opt2.Size = new System.Drawing.Size(14, 13);
-            this.opt2.TabIndex = 2;
-            this.opt2.TabStop = true;
-            this.opt2.UseVisualStyleBackColor = true;
-            // 
-            // opt3
-            // 
-            this.opt3.AutoSize = true;
-            this.opt3.Location = new System.Drawing.Point(37, 127);
-            this.opt3.Name = "opt3";
-            this.opt3.Size = new System.Drawing.Size(14, 13);
-            this.opt3.TabIndex = 3;
-            this.opt3.TabStop = true;
-            this.opt3.UseVisualStyleBackColor = true;
-            // 
-            // opt4
-            // 
-            this.opt4.AutoSize = true;
-            this.opt4.Location = new System.Drawing.Point(37, 166);
-            this.opt4.Name = "opt4";
-            this.opt4.Size = new System.Drawing.Size(14, 13);
-            this.opt4.TabIndex = 4;
-            this.opt4.TabStop = true;
-            this.opt4.UseVisualStyleBackColor = true;
             // 
             // btnPrev
             // 
-            this.btnPrev.Location = new System.Drawing.Point(37, 247);
+            this.btnPrev.Location = new System.Drawing.Point(37, 349);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(75, 23);
             this.btnPrev.TabIndex = 5;
@@ -98,7 +47,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(200, 246);
+            this.btnNext.Location = new System.Drawing.Point(224, 349);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 6;
@@ -106,33 +55,56 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(384, 349);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 8;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(37, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Question:";
+            // 
+            // lblQuestionText
+            // 
+            this.lblQuestionText.AutoSize = true;
+            this.lblQuestionText.Location = new System.Drawing.Point(40, 43);
+            this.lblQuestionText.Name = "lblQuestionText";
+            this.lblQuestionText.Size = new System.Drawing.Size(0, 13);
+            this.lblQuestionText.TabIndex = 10;
+            // 
             // ExamScreenforStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 348);
+            this.ClientSize = new System.Drawing.Size(535, 418);
+            this.Controls.Add(this.lblQuestionText);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrev);
-            this.Controls.Add(this.opt4);
-            this.Controls.Add(this.opt3);
-            this.Controls.Add(this.opt2);
-            this.Controls.Add(this.opt1);
-            this.Controls.Add(this.lblQuestionText);
             this.Name = "ExamScreenforStudent";
             this.Text = "ExamScreenforStudent";
+            this.Load += ExamScreenforStudent_Load;
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        #endregion
 
-        private System.Windows.Forms.Label lblQuestionText;
-        private System.Windows.Forms.RadioButton opt1;
-        private System.Windows.Forms.RadioButton opt2;
-        private System.Windows.Forms.RadioButton opt3;
-        private System.Windows.Forms.RadioButton opt4;
+        #endregion
         private System.Windows.Forms.Button btnPrev;
         private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblQuestionText;
     }
 }
