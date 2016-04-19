@@ -16,10 +16,13 @@ namespace Xzam
     {
         private QuestionBank _qb;
         private Question _q;
+        private Student _stu;
         private int index = 0;
         private double totalPoints = 0;
+        private double points = 0;
         private RadioButton[] rd = null;
         private List<Option> _options = null;
+        StudentDataAccess sda = null;
 
         public QuestionBank QuesBank
         {
@@ -33,22 +36,35 @@ namespace Xzam
             get { return _q; }
         }
 
+        public Student Stu
+        {
+            set { _stu = value; }
+            get { return _stu; }
+        }
         private void ExamScreenforStudent_Load(object sender, EventArgs e)
         {
             LoadQuestion();
         }
 
-        public ExamScreenforStudent(QuestionBank qb)
+        public ExamScreenforStudent(Student stu, QuestionBank qb)
         {
             InitializeComponent();
-            this._qb = qb;
-            this._q = qb.QuestionList.ToList()[0];
+            _qb = qb;
+            _q = qb.QuestionList.ToList()[0];
+            _stu = stu;
+            foreach (Question q in _qb.QuestionList)
+                totalPoints += q.GradePoint;
         }
 
         private void LoadQuestion()
         {
             if (_q != null)
             {
+                if (rd != null)
+                {
+                    for (int i = 0; i < rd.Length; i++)
+                        this.Controls.Remove(rd[i]);
+                }
                 this.lblQuestionText.Text = _q.QuestionTitle;
                 RadioButton[] radioButton = new RadioButton[_q.Options.Count];
                 rd = new RadioButton[_q.Options.Count];
@@ -57,10 +73,11 @@ namespace Xzam
                 for (int i = 0; i < _q.Options.Count; i++)
                 {
                     radioButton[i] = new RadioButton();
-                    radioButton[i].Location = new Point(30, 65 + i * 20);
+                    radioButton[i].Location = new Point(30, 100 + i * 20);
                     radioButton[i].Text = _options[i].Value;
                     radioButton[i].AutoSize = true;
                     this.Controls.Add(radioButton[i]);
+                    
                     rd[i] = radioButton[i];
                 }
             }            
@@ -75,7 +92,7 @@ namespace Xzam
                     if (rd[i].Checked) 
                     {
                         if (_options[i].Code == _q.CorrectOption)
-                            totalPoints += _q.GradePoint;
+                            points += _q.GradePoint;
                     }
                 }
                 index--;
@@ -97,7 +114,7 @@ namespace Xzam
                     if (rd[i].Checked)
                     {
                         if (_options[i].Code == _q.CorrectOption)
-                            totalPoints += _q.GradePoint;
+                            points += _q.GradePoint;
                     }
                 }
                 index++;
@@ -108,6 +125,12 @@ namespace Xzam
             {
                 MessageBox.Show("This is the last question!");
             }            
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Attempt score: " + points + " out of " + totalPoints);
+
         }
     }
 }

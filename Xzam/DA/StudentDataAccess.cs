@@ -38,7 +38,28 @@ namespace Xzam.DA
             {
                 throw;
             }
+        }
 
+        public int SaveGrade(Student student,double grade)
+        {
+            if (student == null)
+            {
+                throw new Exception("No data found to save");
+            }
+            int affectedRow;
+            try
+            {
+                SqlParameter[] scol = new SqlParameter[3];
+                scol[0] = new SqlParameter("@scheduleid", student.ScheduleID);
+                scol[1] = new SqlParameter("@studentid", student.StudentID);
+                scol[2] = new SqlParameter("@grade", grade);
+                affectedRow = XDbConnection.ExecuteWithParam("proc_saveStudentGrade", scol);
+                return affectedRow;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public StudentCollection GetList()

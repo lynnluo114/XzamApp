@@ -41,11 +41,14 @@ namespace Xzam
             this.btnCancel = new System.Windows.Forms.Button();
             this.examCodeList = new System.Windows.Forms.ComboBox();
             this.examTitleList = new System.Windows.Forms.ComboBox();
-            this.list_Students = new System.Windows.Forms.ListBox();
+            this.studentList = new System.Windows.Forms.ListBox();
             this.qbankList = new System.Windows.Forms.ComboBox();
             this.scheduledDate = new System.Windows.Forms.DateTimePicker();
             this.startTime = new System.Windows.Forms.DateTimePicker();
             this.endTime = new System.Windows.Forms.DateTimePicker();
+            this.attendStudentList = new System.Windows.Forms.ListBox();
+            this.moveRight = new System.Windows.Forms.Button();
+            this.moveLef = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -69,7 +72,7 @@ namespace Xzam
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 91);
+            this.label3.Location = new System.Drawing.Point(41, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 2;
@@ -78,7 +81,7 @@ namespace Xzam
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 213);
+            this.label4.Location = new System.Drawing.Point(22, 233);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 13);
             this.label4.TabIndex = 3;
@@ -87,7 +90,7 @@ namespace Xzam
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 267);
+            this.label5.Location = new System.Drawing.Point(15, 287);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 13);
             this.label5.TabIndex = 4;
@@ -96,7 +99,7 @@ namespace Xzam
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(44, 300);
+            this.label6.Location = new System.Drawing.Point(44, 320);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 5;
@@ -105,7 +108,7 @@ namespace Xzam
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(44, 327);
+            this.label7.Location = new System.Drawing.Point(44, 347);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(55, 13);
             this.label7.TabIndex = 6;
@@ -113,7 +116,7 @@ namespace Xzam
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(22, 361);
+            this.btnCreate.Location = new System.Drawing.Point(22, 381);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 7;
@@ -123,7 +126,7 @@ namespace Xzam
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(165, 361);
+            this.btnCancel.Location = new System.Drawing.Point(165, 381);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 8;
@@ -148,25 +151,26 @@ namespace Xzam
             this.examTitleList.TabIndex = 10;
             this.examTitleList.SelectedIndexChanged += new System.EventHandler(this.examTitleList_SelectedIndexChanged);
             // 
-            // list_Students
+            // studentList
             // 
-            this.list_Students.FormattingEnabled = true;
-            this.list_Students.Location = new System.Drawing.Point(120, 91);
-            this.list_Students.Name = "list_Students";
-            this.list_Students.Size = new System.Drawing.Size(200, 95);
-            this.list_Students.TabIndex = 11;
+            this.studentList.FormattingEnabled = true;
+            this.studentList.Location = new System.Drawing.Point(120, 111);
+            this.studentList.Name = "studentList";
+            this.studentList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.studentList.Size = new System.Drawing.Size(160, 95);
+            this.studentList.TabIndex = 11;
             // 
             // qbankList
             // 
             this.qbankList.FormattingEnabled = true;
-            this.qbankList.Location = new System.Drawing.Point(120, 213);
+            this.qbankList.Location = new System.Drawing.Point(120, 233);
             this.qbankList.Name = "qbankList";
             this.qbankList.Size = new System.Drawing.Size(200, 21);
             this.qbankList.TabIndex = 12;
             // 
             // scheduledDate
             // 
-            this.scheduledDate.Location = new System.Drawing.Point(120, 267);
+            this.scheduledDate.Location = new System.Drawing.Point(120, 287);
             this.scheduledDate.Name = "scheduledDate";
             this.scheduledDate.Size = new System.Drawing.Size(200, 20);
             this.scheduledDate.TabIndex = 13;
@@ -174,7 +178,7 @@ namespace Xzam
             // startTime
             // 
             this.startTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.startTime.Location = new System.Drawing.Point(120, 292);
+            this.startTime.Location = new System.Drawing.Point(120, 312);
             this.startTime.Name = "startTime";
             this.startTime.ShowUpDown = true;
             this.startTime.Size = new System.Drawing.Size(200, 20);
@@ -183,22 +187,53 @@ namespace Xzam
             // endTime
             // 
             this.endTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.endTime.Location = new System.Drawing.Point(120, 319);
+            this.endTime.Location = new System.Drawing.Point(120, 339);
             this.endTime.Name = "endTime";
             this.endTime.ShowUpDown = true;
             this.endTime.Size = new System.Drawing.Size(200, 20);
             this.endTime.TabIndex = 15;
             // 
+            // attendStudentList
+            // 
+            this.attendStudentList.FormattingEnabled = true;
+            this.attendStudentList.Location = new System.Drawing.Point(323, 111);
+            this.attendStudentList.Name = "attendStudentList";
+            this.attendStudentList.Size = new System.Drawing.Size(160, 95);
+            this.attendStudentList.TabIndex = 16;
+            // 
+            // moveRight
+            // 
+            this.moveRight.Location = new System.Drawing.Point(287, 120);
+            this.moveRight.Name = "moveRight";
+            this.moveRight.Size = new System.Drawing.Size(33, 23);
+            this.moveRight.TabIndex = 17;
+            this.moveRight.Text = ">>";
+            this.moveRight.UseVisualStyleBackColor = true;
+            this.moveRight.Click += new System.EventHandler(this.moveRight_Click);
+            // 
+            // moveLef
+            // 
+            this.moveLef.Location = new System.Drawing.Point(287, 164);
+            this.moveLef.Name = "moveLef";
+            this.moveLef.Size = new System.Drawing.Size(33, 23);
+            this.moveLef.TabIndex = 18;
+            this.moveLef.Text = "<<";
+            this.moveLef.UseVisualStyleBackColor = true;
+            this.moveLef.Click += new System.EventHandler(this.moveLef_Click);
+            // 
             // frmSchedulerCreation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 414);
+            this.ClientSize = new System.Drawing.Size(589, 453);
+            this.Controls.Add(this.moveLef);
+            this.Controls.Add(this.moveRight);
+            this.Controls.Add(this.attendStudentList);
             this.Controls.Add(this.endTime);
             this.Controls.Add(this.startTime);
             this.Controls.Add(this.scheduledDate);
             this.Controls.Add(this.qbankList);
-            this.Controls.Add(this.list_Students);
+            this.Controls.Add(this.studentList);
             this.Controls.Add(this.examTitleList);
             this.Controls.Add(this.examCodeList);
             this.Controls.Add(this.btnCancel);
@@ -231,11 +266,14 @@ namespace Xzam
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ComboBox examCodeList;
         private System.Windows.Forms.ComboBox examTitleList;
-        private System.Windows.Forms.ListBox list_Students;
+        private System.Windows.Forms.ListBox studentList;
         private System.Windows.Forms.ComboBox qbankList;
         private System.Windows.Forms.DateTimePicker scheduledDate;
         private System.Windows.Forms.DateTimePicker startTime;
         private System.Windows.Forms.DateTimePicker endTime;
+        private System.Windows.Forms.ListBox attendStudentList;
+        private System.Windows.Forms.Button moveRight;
+        private System.Windows.Forms.Button moveLef;
     }
 }
 

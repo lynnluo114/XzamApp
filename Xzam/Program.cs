@@ -19,7 +19,7 @@ namespace Xzam
             QuestionDataAccess qda = new QuestionDataAccess();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ExamScreenforStudent(new QuestionBank(qda.GetList(1))));
+            Application.Run(new frmSchedulerCreation());
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace Xzam.Models
 {
-    class StudentCollection:IEnumerable
+    public class StudentCollection:IEnumerable
     {
         private List<Student> studentList;
 

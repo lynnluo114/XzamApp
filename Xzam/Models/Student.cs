@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Xzam.Models
 {
-    class Student
+    public class Student
     {
         private String sid;
         private String studentName;

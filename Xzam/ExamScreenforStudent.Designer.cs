@@ -63,6 +63,7 @@
             this.btnSubmit.TabIndex = 8;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // label1
             // 
@@ -93,7 +94,7 @@
             this.Controls.Add(this.btnPrev);
             this.Name = "ExamScreenforStudent";
             this.Text = "ExamScreenforStudent";
-            this.Load += ExamScreenforStudent_Load;
+            this.Load += new System.EventHandler(this.ExamScreenforStudent_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
