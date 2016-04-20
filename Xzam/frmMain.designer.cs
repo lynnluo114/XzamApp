@@ -44,6 +44,8 @@
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblCurrentUser = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +59,9 @@
             this.toolStripButtonQuestionBank,
             this.toolStripButtonTimeSchedule,
             this.toolStripButtonChangePassword,
-            this.toolStripButtonLogout});
+            this.toolStripButtonLogout,
+            this.lblCurrentUser,
+            this.toolStripButton1});
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
@@ -194,6 +198,24 @@
             this.exitApplicationToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.exitApplicationToolStripMenuItem.Text = "Exit Application";
             // 
+            // lblCurrentUser
+            // 
+            this.lblCurrentUser.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.lblCurrentUser.Name = "lblCurrentUser";
+            this.lblCurrentUser.Padding = new System.Windows.Forms.Padding(15);
+            this.lblCurrentUser.Size = new System.Drawing.Size(116, 81);
+            this.lblCurrentUser.Text = "toolStripLabel1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(87, 81);
+            this.toolStripButton1.Text = "Logged In as : ";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,6 +260,8 @@
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewScheduleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitApplicationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripLabel lblCurrentUser;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 

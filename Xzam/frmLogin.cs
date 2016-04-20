@@ -48,21 +48,10 @@ namespace Xzam
                 if (reader.Read())
                 {
                     //MessageBox.Show(reader[0].ToString());// check dong da duoc doc
-                    MessageBox.Show("You are logged In");
+                     
                     frmMain frm = new frmMain(txtUserNLogin.Text,txtPasswordLogin.Text);
-                    frm.Show();
-                    this.Hide();
-                    if (txtUserNLogin.Text == "admin")
-                    {
-                        MessageBox.Show("You are Admin");
-
-                    }
-                    //else if (txtUserNLogin.Text != "Admin" && txtUserNLogin.Text != "")
-                    //{
-                    //    frmChangePassword form1 = new frmChangePassword();
-                    //    form1.passValue = txtPasswordLogin.Text;
-                    //    form1.Show();
-                    //}
+                    frm.Show(); 
+                     
                 }
                 else
                 {

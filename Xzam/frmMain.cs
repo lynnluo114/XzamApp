@@ -24,6 +24,7 @@ namespace Xzam
         {
             this.username = username;
             this.password = password;
+            lblCurrentUser.Text = username;
         }
 
         frmUserMaintenance frm1 = new frmUserMaintenance();
