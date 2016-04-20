@@ -1,8 +1,0 @@
-E:\frmMain\bin\Debug\frmMain.exe.config
-E:\frmMain\bin\Debug\frmMain.exe
-E:\frmMain\bin\Debug\frmMain.pdb
-E:\frmMain\obj\Debug\frmMain.Form1.resources
-E:\frmMain\obj\Debug\frmMain.Properties.Resources.resources
-E:\frmMain\obj\Debug\frmMain.csproj.GenerateResource.Cache
-E:\frmMain\obj\Debug\frmMain.exe
-E:\frmMain\obj\Debug\frmMain.pdb
