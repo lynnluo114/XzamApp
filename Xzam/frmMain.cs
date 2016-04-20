@@ -15,6 +15,8 @@ namespace Xzam
         private string username;
         private string password;
 
+        private frmQuestionBankSetup frm3;
+
         public frmMain()
         {
             InitializeComponent();
@@ -42,10 +44,9 @@ namespace Xzam
             if (frm2.IsDisposed) { frm2 = new ExamSetup(); }
             frm2.ShowDialog(); 
         }
-        frmQuestionBankSetup frm3 = new frmQuestionBankSetup();
         private void toolStripButtonQuestionBank_Click(object sender, EventArgs e)
         {
-            if (frm3.IsDisposed) { frm3 = new frmQuestionBankSetup(); }
+            frm3 = new frmQuestionBankSetup();
             frm3.ShowDialog(); 
         }
         frmSchedulerCreation frm4 = new frmSchedulerCreation();

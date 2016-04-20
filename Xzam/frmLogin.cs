@@ -50,8 +50,8 @@ namespace Xzam
                     //MessageBox.Show(reader[0].ToString());// check dong da duoc doc
                      
                     frmMain frm = new frmMain(txtUserNLogin.Text,txtPasswordLogin.Text);
-                    frm.Show(); 
-                     
+                    frm.Show();
+                    this.Hide();
                 }
                 else
                 {
