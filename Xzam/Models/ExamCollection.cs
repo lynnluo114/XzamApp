@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace Xzam.Models
 {
-    class ExamCollection:IEnumerable
+    class ExamCollection : IEnumerable
     {
         private List<Exam> examList;
 
@@ -33,7 +33,7 @@ namespace Xzam.Models
                 return examList.Count;
             }
         }
-        public List<Exam> StudentList
+        public List<Exam> ExamList
         {
             get
             {

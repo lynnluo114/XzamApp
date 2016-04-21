@@ -28,27 +28,22 @@ begin
     SELECT @scheduleid = SCOPE_IDENTITY()
 end
 
-CREATE procedure [dbo].[proc_saveStduentGrade] @scheduleid int,  @studentid nvarchar(10),@grade decimal
+CREATE procedure [dbo].[proc_saveStduentGrade] @studentid nvarchar(10),@examcode nvarchar(20),@grade decimal
 as
 begin
-	update Student set grade=@grade
-	where scheduleid =@scheduleid and studentid =@studentid 
+	insert into StudentGrade values(@studentid,@examcode,@grade);
 end
 
-CREATE procedure [dbo].[proc_saveStduentSchedule] @scheduleid int,  @studentid nvarchar(10)
+CREATE procedure [dbo].[proc_saveStduentSchedule] @studentid nvarchar(10),@scheduleid int,@gradepoints decimal
 as
 begin
-	update Student set scheduleid =@scheduleid
-	where studentid =@studentid
+	insert into StudentSchedule values(@studentid,@scheduleid,@gradepoints);
 end
 
-CREATE procedure [dbo].[proc_getStudentSchedule] @userid int
+CREATE procedure [dbo].[proc_getStudentSchedule]
 as
 begin
-	select ExamSchedule.scheduleid as scheduleid,Exam.examcode as examcode,Exam.examtitle as examtitle,scheduledate,starttime,endtime from Exam,ExamSchedule,Student,User_Table
+	select scheduleid as scheduleid,Exam.examcode as examcode,Exam.examtitle as examtitle,scheduledate,starttime,endtime from Exam,ExamSchedule
 	where Exam.examcode = ExamSchedule.examcode 
-	and ExamSchedule.scheduleid = Student.scheduleid 
-	and Student.userid = User_Table.id
-	and User_Table.id = @userid;
 end
 GO
