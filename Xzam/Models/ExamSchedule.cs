@@ -88,15 +88,15 @@ namespace Xzam.Models
             }
         }
 
-        public ExamSchedule(int scheduleID, int questionBankID, String examCode, String scheduleDate, String startTime, String endTime)
+        public ExamSchedule(int scheduleID, int questionBankID, String examCode,String examTitle, String scheduleDate, String startTime, String endTime)
         {
             ScheduleID = scheduleID;
             QuestionBankID = questionBankID;
             ExamCode = examCode;
+            ExamTitle = examTitle;
             ScheduleDate = scheduleDate;
             StartTime = startTime;
             EndTime = endTime;
         }
-
     }
 }

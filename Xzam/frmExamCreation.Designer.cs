@@ -33,7 +33,7 @@
             this.text_ExamCode = new System.Windows.Forms.TextBox();
             this.text_ExamTitle = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -78,21 +78,22 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // button2
+            // btnCancel
             // 
-            this.button2.Location = new System.Drawing.Point(146, 168);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(146, 168);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 5;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.button2_Click);
             // 
             // ExamSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.text_ExamTitle);
             this.Controls.Add(this.text_ExamCode);
@@ -112,6 +113,6 @@
         private System.Windows.Forms.TextBox text_ExamCode;
         private System.Windows.Forms.TextBox text_ExamTitle;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

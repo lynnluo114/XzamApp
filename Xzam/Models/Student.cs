@@ -13,6 +13,7 @@ namespace Xzam.Models
         private String userName;
         private String password;
         private int scheduleid;
+        private int userid;
 
         public String StudentID
         {
@@ -70,6 +71,15 @@ namespace Xzam.Models
         {
             get { return this.scheduleid; }
             set { this.scheduleid = value; }
+        }
+
+        public int UserID
+        {
+            get { return this.userid; }
+            set
+            {
+                this.userid = value;
+            }
         }
 
         public Student(String studentID, String studentName, String userName, String password)

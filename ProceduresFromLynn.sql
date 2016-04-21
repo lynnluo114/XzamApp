@@ -42,3 +42,13 @@ begin
 	where studentid =@studentid
 end
 
+CREATE procedure [dbo].[proc_getStudentSchedule] @userid int
+as
+begin
+	select ExamSchedule.scheduleid as scheduleid,Exam.examcode as examcode,Exam.examtitle as examtitle,scheduledate,starttime,endtime from Exam,ExamSchedule,Student,User_Table
+	where Exam.examcode = ExamSchedule.examcode 
+	and ExamSchedule.scheduleid = Student.scheduleid 
+	and Student.userid = User_Table.id
+	and User_Table.id = @userid;
+end
+GO

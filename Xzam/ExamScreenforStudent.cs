@@ -54,7 +54,7 @@ namespace Xzam
             _stu = stu;
             foreach (Question q in _qb.QuestionList)
                 totalPoints += q.GradePoint;
-            this.btnPrev.Visible = _qb.BackTrack;
+            //this.btnPrev.Visible = _qb.BackTrack;
         }
 
         private void LoadQuestion()
@@ -75,7 +75,7 @@ namespace Xzam
                 {
                     radioButton[i] = new RadioButton();
                     radioButton[i].Location = new Point(30, 100 + i * 20);
-                    radioButton[i].Text = _options[i].Value;
+                    radioButton[i].Text = _options[i].Code + "." + _options[i].Value;
                     radioButton[i].AutoSize = true;
                     this.Controls.Add(radioButton[i]);
                     

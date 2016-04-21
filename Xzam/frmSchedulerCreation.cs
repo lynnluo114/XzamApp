@@ -90,28 +90,66 @@ namespace Xzam
 
         private void but_Create_Click(object sender, EventArgs e)
         {
-            String examcode = examCodeList.SelectedItem.ToString();
+            bool success = true;
+            String examcode = "";
+            String examtitle = "";
+            if (examCodeList.SelectedItem.ToString().Equals(""))
+            {
+                success = false;
+                MessageBox.Show("Please select an Exam Code!");
+            }
+            else
+            {
+                examcode = examCodeList.SelectedItem.ToString();
+            }
+
+            if (examTitleList.SelectedItem.ToString().Equals(""))
+            {
+                success = false;
+                MessageBox.Show("Please select an Exam Title!");
+            }
+            else
+            {
+                examtitle = examTitleList.SelectedItem.ToString();
+            }
             int qbankid = 0;
             List<String> studentIDs = new List<String>();
             int scheduleid = 0;
-            foreach (QuestionBank qbank in qbda.GetList())
+            if (qbankList.SelectedItem.ToString().Equals(""))
             {
-                if (qbank.Name.Equals(qbankList.SelectedItem.ToString()))
-                    qbankid = qbank.ID;
+                success = false;
+                MessageBox.Show("Please select Question Bank!");
             }
-
-            foreach (var item in attendStudentList.Items)
+            else
             {
-                foreach (Student stu in sda.GetList())
+                foreach (QuestionBank qbank in qbda.GetList())
                 {
-                    if (item.ToString().Equals(stu.StudentName))
-                        studentIDs.Add(stu.StudentID);
+                    if (qbank.Name.Equals(qbankList.SelectedItem.ToString()))
+                        qbankid = qbank.ID;
                 }
             }
+
+            if (attendStudentList.Items.Count == 0)
+            {
+                success = false;
+                MessageBox.Show("Please select student or group of students!");
+            }
+            else
+            {
+                foreach (var item in attendStudentList.Items)
+                {
+                    foreach (Student stu in sda.GetList())
+                    {
+                        if (item.ToString().Equals(stu.StudentName))
+                            studentIDs.Add(stu.StudentID);
+                    }
+                }
+            }
+
             String scheduledate = scheduledDate.Value.ToShortDateString();
             String starttime = startTime.Value.ToShortTimeString();
             String endtime = endTime.Value.ToShortTimeString();
-            ExamSchedule es = new ExamSchedule(scheduleid,qbankid,examcode,scheduledate,starttime,endtime);
+            ExamSchedule es = new ExamSchedule(scheduleid, qbankid, examcode, examtitle, scheduledate, starttime, endtime);
             try
             {
                 scheduleid = esda.SaveData(es);

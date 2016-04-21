@@ -24,7 +24,9 @@ CREATE TABLE [dbo].[Student] (
     [password]    NVARCHAR (20) NOT NULL,
     [scheduleid]  INT           NULL,
     [grade]       DECIMAL (18)  NULL,
+    [userid]      INT           NOT NULL,
     CONSTRAINT [PK_Student] PRIMARY KEY ([studentid]),
-    CONSTRAINT [FK_Student_ExamSchedule] FOREIGN KEY ([scheduleid]) REFERENCES [dbo].[ExamSchedule] ([scheduleid])
+    CONSTRAINT [FK_Student_User_Table] FOREIGN KEY ([scheduleid]) REFERENCES [dbo].[ExamSchedule] ([scheduleid]),
+    CONSTRAINT [FK_Student_User_Table] FOREIGN KEY ([userid]) REFERENCES [dbo].[User_Table] ([id])
 );
 
