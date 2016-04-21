@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xzam.Models;
-namespace Xzam
+namespace Xzam.Utility
 {
-    public class Shuffler
+    public class Shuffle
     {
-        private Random random = new Random();
-        private List<int> randomNums;
-        private int max;
-        public Shuffler(int max)
+        /*
+			Created by Luja Manandhar 
+			Purpose: Shuffles the list of questions randomly sent as parameter for Do method
+		*/
+        private static List<int> randomNums; 
+		public Shuffle(){ 
+		}
+        public static void Do(ref List<Question> list)
         {
-            this.max = max;
-        }
-
-        public void Shuffle(ref List<Question> list)
-        {
+			Random random = new Random ();
             randomNums = new List<int>(list.Count);
             int counter = list.Count;
 
@@ -39,29 +39,14 @@ namespace Xzam
             Question temp;
             for (int i = 0; i < counter; i++)
             {
-                Console.WriteLine(randomNums[i]);
+                 
                 temp = list[i];
                 list[i] = list[randomNums[i] - 1];
                 list[randomNums[i] - 1] = temp;
             }
+			temp = null;
+			randomNums = null;
         }
-        public int GetRandomNumber(List<int> excepted)
-        {
 
-            int counter = max;
-
-            int num = 0;
-
-            num = random.Next(1, counter);
-            if (excepted.Count != 0)
-            {
-                while (excepted.Contains(num))
-                {
-                    num = random.Next(counter) + 1;
-                }
-            }
-
-            return num;
-        }
     }
 }

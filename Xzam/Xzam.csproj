@@ -130,7 +130,6 @@
     </Compile>
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentCollection.cs" />
-    <Compile Include="Shuffler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="USERDataSet1.Designer.cs">
@@ -202,6 +201,7 @@
       <DependentUpon>USERDataSet.xsd</DependentUpon>
     </None>
     <Compile Include="TESTClassForDima.cs" />
+    <Compile Include="Utility\Shuffle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -215,4 +215,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Folder Include="Utility\" />
+  </ItemGroup>
 </Project>
