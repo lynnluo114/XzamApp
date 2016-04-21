@@ -36,6 +36,8 @@
             this.toolStripButtonTimeSchedule = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonChangePassword = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonLogout = new System.Windows.Forms.ToolStripButton();
+            this.lblCurrentUser = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,10 +46,19 @@
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblCurrentUser = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.examArea = new System.Windows.Forms.GroupBox();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.lbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblExamTitle = new System.Windows.Forms.Label();
+            this.lblScheduleDate = new System.Windows.Forms.Label();
+            this.lblStartTime = new System.Windows.Forms.Label();
+            this.lblEndTime = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.examArea.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -133,6 +144,24 @@
             this.toolStripButtonLogout.Text = "Log out";
             this.toolStripButtonLogout.Click += new System.EventHandler(this.toolStripButtonLogout_Click);
             // 
+            // lblCurrentUser
+            // 
+            this.lblCurrentUser.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.lblCurrentUser.Name = "lblCurrentUser";
+            this.lblCurrentUser.Padding = new System.Windows.Forms.Padding(15);
+            this.lblCurrentUser.Size = new System.Drawing.Size(116, 81);
+            this.lblCurrentUser.Text = "toolStripLabel1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(87, 81);
+            this.toolStripButton1.Text = "Logged In as : ";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -198,23 +227,104 @@
             this.exitApplicationToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.exitApplicationToolStripMenuItem.Text = "Exit Application";
             // 
-            // lblCurrentUser
+            // examArea
             // 
-            this.lblCurrentUser.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.lblCurrentUser.Name = "lblCurrentUser";
-            this.lblCurrentUser.Padding = new System.Windows.Forms.Padding(15);
-            this.lblCurrentUser.Size = new System.Drawing.Size(116, 81);
-            this.lblCurrentUser.Text = "toolStripLabel1";
+            this.examArea.Controls.Add(this.lblEndTime);
+            this.examArea.Controls.Add(this.lblStartTime);
+            this.examArea.Controls.Add(this.lblScheduleDate);
+            this.examArea.Controls.Add(this.lblExamTitle);
+            this.examArea.Controls.Add(this.label2);
+            this.examArea.Controls.Add(this.label1);
+            this.examArea.Controls.Add(this.lbl);
+            this.examArea.Controls.Add(this.btnStart);
+            this.examArea.Controls.Add(this.lbl1);
+            this.examArea.Location = new System.Drawing.Point(0, 111);
+            this.examArea.Name = "examArea";
+            this.examArea.Size = new System.Drawing.Size(323, 181);
+            this.examArea.TabIndex = 6;
+            this.examArea.TabStop = false;
+            this.examArea.Text = "Exam Available";
             // 
-            // toolStripButton1
+            // lbl1
             // 
-            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(87, 81);
-            this.toolStripButton1.Text = "Logged In as : ";
+            this.lbl1.AutoSize = true;
+            this.lbl1.Location = new System.Drawing.Point(7, 33);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(59, 13);
+            this.lbl1.TabIndex = 0;
+            this.lbl1.Text = "Exam Title:";
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(219, 121);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.TabIndex = 1;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.Location = new System.Drawing.Point(7, 62);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(81, 13);
+            this.lbl.TabIndex = 2;
+            this.lbl.Text = "Schedule Date:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 93);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Start Time:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 121);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "EndTime:";
+            // 
+            // lblExamTitle
+            // 
+            this.lblExamTitle.AutoSize = true;
+            this.lblExamTitle.Location = new System.Drawing.Point(109, 32);
+            this.lblExamTitle.Name = "lblExamTitle";
+            this.lblExamTitle.Size = new System.Drawing.Size(35, 13);
+            this.lblExamTitle.TabIndex = 5;
+            this.lblExamTitle.Text = "label3";
+            // 
+            // lblScheduleDate
+            // 
+            this.lblScheduleDate.AutoSize = true;
+            this.lblScheduleDate.Location = new System.Drawing.Point(112, 61);
+            this.lblScheduleDate.Name = "lblScheduleDate";
+            this.lblScheduleDate.Size = new System.Drawing.Size(35, 13);
+            this.lblScheduleDate.TabIndex = 6;
+            this.lblScheduleDate.Text = "label4";
+            // 
+            // lblStartTime
+            // 
+            this.lblStartTime.AutoSize = true;
+            this.lblStartTime.Location = new System.Drawing.Point(112, 92);
+            this.lblStartTime.Name = "lblStartTime";
+            this.lblStartTime.Size = new System.Drawing.Size(35, 13);
+            this.lblStartTime.TabIndex = 7;
+            this.lblStartTime.Text = "label5";
+            // 
+            // lblEndTime
+            // 
+            this.lblEndTime.AutoSize = true;
+            this.lblEndTime.Location = new System.Drawing.Point(112, 120);
+            this.lblEndTime.Name = "lblEndTime";
+            this.lblEndTime.Size = new System.Drawing.Size(35, 13);
+            this.lblEndTime.TabIndex = 8;
+            this.lblEndTime.Text = "label6";
             // 
             // frmMain
             // 
@@ -224,6 +334,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1294, 454);
+            this.Controls.Add(this.examArea);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
@@ -238,6 +349,8 @@
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.examArea.ResumeLayout(false);
+            this.examArea.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,6 +375,16 @@
         private System.Windows.Forms.ToolStripMenuItem exitApplicationToolStripMenuItem;
         private System.Windows.Forms.ToolStripLabel lblCurrentUser;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.GroupBox examArea;
+        private System.Windows.Forms.Label lblEndTime;
+        private System.Windows.Forms.Label lblStartTime;
+        private System.Windows.Forms.Label lblScheduleDate;
+        private System.Windows.Forms.Label lblExamTitle;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Label lbl1;
     }
 }
 

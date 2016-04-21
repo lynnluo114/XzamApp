@@ -129,23 +129,6 @@ namespace Xzam
                 }
             }
 
-            if (attendStudentList.Items.Count == 0)
-            {
-                success = false;
-                MessageBox.Show("Please select student or group of students!");
-            }
-            else
-            {
-                foreach (var item in attendStudentList.Items)
-                {
-                    foreach (Student stu in sda.GetList())
-                    {
-                        if (item.ToString().Equals(stu.StudentName))
-                            studentIDs.Add(stu.StudentID);
-                    }
-                }
-            }
-
             String scheduledate = scheduledDate.Value.ToShortDateString();
             String starttime = startTime.Value.ToShortTimeString();
             String endtime = endTime.Value.ToShortTimeString();
@@ -171,42 +154,6 @@ namespace Xzam
             }
         }
 
-        private void moveRight_Click(object sender, EventArgs e)
-        {
-            string ErrNoSelection = "Cannot move - please select a student!";
-
-            if (studentList.SelectedItems.Count == 0)
-                MessageBox.Show(ErrNoSelection);
-            else
-            {
-                foreach (string item in studentList.SelectedItems)
-                {
-                    attendStudentList.Items.Add(item);
-                }
-                while (studentList.SelectedItems.Count > 0)
-                {
-                    studentList.Items.Remove(studentList.SelectedItems[0]);
-                }
-            }
-        }
-
-        private void moveLef_Click(object sender, EventArgs e)
-        {
-            string ErrNoSelection = "Cannot move - please select a student!";
-            if (attendStudentList.SelectedItems.Count == 0)
-                MessageBox.Show(ErrNoSelection);
-            else
-            {
-                foreach (string item in attendStudentList.SelectedItems)
-                {
-                    studentList.Items.Add(item);
-                }
-                while (attendStudentList.SelectedItems.Count > 0)
-                {
-                    attendStudentList.Items.Remove(attendStudentList.SelectedItems[0]);
-                }
-            }
-        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

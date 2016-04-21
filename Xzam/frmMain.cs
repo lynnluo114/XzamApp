@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Xzam.DA;
+using Xzam.Models;
 
 namespace Xzam
 {
@@ -15,7 +17,10 @@ namespace Xzam
         private string username;
         private string password;
 
+        private ExamSetup frm2;
         private frmQuestionBankSetup frm3;
+        private frmSchedulerCreation frm4;
+        private ExamScheduleDataAccess esda;
 
         public frmMain()
         {
@@ -38,10 +43,10 @@ namespace Xzam
             }
             frm1.ShowDialog(); 
         }
-        ExamSetup frm2 = new ExamSetup();
+        
         private void toolStripButtonExamManagement_Click(object sender, EventArgs e)
         {
-            if (frm2.IsDisposed) { frm2 = new ExamSetup(); }
+            frm2 = new ExamSetup();
             frm2.ShowDialog(); 
         }
         private void toolStripButtonQuestionBank_Click(object sender, EventArgs e)
@@ -49,10 +54,10 @@ namespace Xzam
             frm3 = new frmQuestionBankSetup();
             frm3.ShowDialog(); 
         }
-        frmSchedulerCreation frm4 = new frmSchedulerCreation();
+        
         private void toolStripButtonTimeSchedule_Click(object sender, EventArgs e)
         {
-            if (frm4.IsDisposed) { frm4 = new frmSchedulerCreation(); }
+            frm4 = new frmSchedulerCreation();
             frm4.ShowDialog(); 
         }
 
@@ -67,6 +72,7 @@ namespace Xzam
             {
                 toolStripButtonChangePassword.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
                 toolStripButtonChangePassword.Enabled = false;
+                examArea.Visible = false;
             }
             else
             {
@@ -76,6 +82,26 @@ namespace Xzam
                 toolStripButtonQuestionBank.Enabled = false;
                 toolStripButtonUserManagement.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
                 toolStripButtonUserManagement.Enabled = false;
+                examArea.Visible = true;
+                List<ExamSchedule> es = esda.GetStudentScheduleList(username);
+                foreach (var item in es)
+                {
+                    if (item.ScheduleDate == DateTime.Today.ToShortDateString())
+                    {
+                        lblExamTitle.Text = item.ExamTitle;
+                        lblScheduleDate.Text = item.ScheduleDate;
+                        lblStartTime.Text = item.StartTime;
+                        lblEndTime.Text = item.EndTime;
+                        if (DateTime.Parse(item.StartTime) <= DateTime.Parse(DateTime.Now.ToShortTimeString()))
+                        {
+                            btnStart.Enabled = true;
+                        }
+                        else
+                        {
+                            btnStart.Enabled = false;
+                        }
+                    }                    
+                }
             }
         }
         frmChangePassword frm5 = new frmChangePassword();
@@ -133,7 +159,7 @@ namespace Xzam
 
         private void viewScheduleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (frm4.IsDisposed) { frm4 = new frmSchedulerCreation(); }
+            frm4 = new frmSchedulerCreation(); 
             frm4.ShowDialog(); 
         }
 

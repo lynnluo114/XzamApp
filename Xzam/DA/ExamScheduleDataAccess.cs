@@ -48,12 +48,12 @@ namespace Xzam.DA
             }
         }
 
-        public List<ExamSchedule> GetStudentScheduleList(int userID)
+        public List<ExamSchedule> GetStudentScheduleList(String userName)
         {
             List<ExamSchedule> studentScheduleList = new List<ExamSchedule>();
             ExamSchedule es;
 
-            using (SqlDataReader sdr = XDbConnection.ReadDataProc("proc_getStudentSchedule", new SqlParameter[1] { new SqlParameter("@userid", userID) }))
+            using (SqlDataReader sdr = XDbConnection.ReadDataProc("proc_getStudentSchedule", new SqlParameter[1] { new SqlParameter("@username", userName) }))
             {
                 while (sdr.Read())
                 {

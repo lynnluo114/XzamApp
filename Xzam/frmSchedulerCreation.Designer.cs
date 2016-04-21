@@ -41,14 +41,11 @@ namespace Xzam
             this.btnCancel = new System.Windows.Forms.Button();
             this.examCodeList = new System.Windows.Forms.ComboBox();
             this.examTitleList = new System.Windows.Forms.ComboBox();
-            this.studentList = new System.Windows.Forms.ListBox();
             this.qbankList = new System.Windows.Forms.ComboBox();
             this.scheduledDate = new System.Windows.Forms.DateTimePicker();
             this.startTime = new System.Windows.Forms.DateTimePicker();
             this.endTime = new System.Windows.Forms.DateTimePicker();
-            this.attendStudentList = new System.Windows.Forms.ListBox();
-            this.moveRight = new System.Windows.Forms.Button();
-            this.moveLef = new System.Windows.Forms.Button();
+            this.studentList = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -152,15 +149,6 @@ namespace Xzam
             this.examTitleList.TabIndex = 10;
             this.examTitleList.SelectedIndexChanged += new System.EventHandler(this.examTitleList_SelectedIndexChanged);
             // 
-            // studentList
-            // 
-            this.studentList.FormattingEnabled = true;
-            this.studentList.Location = new System.Drawing.Point(120, 111);
-            this.studentList.Name = "studentList";
-            this.studentList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.studentList.Size = new System.Drawing.Size(160, 95);
-            this.studentList.TabIndex = 11;
-            // 
             // qbankList
             // 
             this.qbankList.FormattingEnabled = true;
@@ -194,47 +182,24 @@ namespace Xzam
             this.endTime.Size = new System.Drawing.Size(200, 20);
             this.endTime.TabIndex = 15;
             // 
-            // attendStudentList
+            // studentList
             // 
-            this.attendStudentList.FormattingEnabled = true;
-            this.attendStudentList.Location = new System.Drawing.Point(323, 111);
-            this.attendStudentList.Name = "attendStudentList";
-            this.attendStudentList.Size = new System.Drawing.Size(160, 95);
-            this.attendStudentList.TabIndex = 16;
-            // 
-            // moveRight
-            // 
-            this.moveRight.Location = new System.Drawing.Point(287, 120);
-            this.moveRight.Name = "moveRight";
-            this.moveRight.Size = new System.Drawing.Size(33, 23);
-            this.moveRight.TabIndex = 17;
-            this.moveRight.Text = ">>";
-            this.moveRight.UseVisualStyleBackColor = true;
-            this.moveRight.Click += new System.EventHandler(this.moveRight_Click);
-            // 
-            // moveLef
-            // 
-            this.moveLef.Location = new System.Drawing.Point(287, 164);
-            this.moveLef.Name = "moveLef";
-            this.moveLef.Size = new System.Drawing.Size(33, 23);
-            this.moveLef.TabIndex = 18;
-            this.moveLef.Text = "<<";
-            this.moveLef.UseVisualStyleBackColor = true;
-            this.moveLef.Click += new System.EventHandler(this.moveLef_Click);
+            this.studentList.FormattingEnabled = true;
+            this.studentList.Location = new System.Drawing.Point(120, 111);
+            this.studentList.Name = "studentList";
+            this.studentList.Size = new System.Drawing.Size(120, 95);
+            this.studentList.TabIndex = 16;
             // 
             // frmSchedulerCreation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 453);
-            this.Controls.Add(this.moveLef);
-            this.Controls.Add(this.moveRight);
-            this.Controls.Add(this.attendStudentList);
+            this.Controls.Add(this.studentList);
             this.Controls.Add(this.endTime);
             this.Controls.Add(this.startTime);
             this.Controls.Add(this.scheduledDate);
             this.Controls.Add(this.qbankList);
-            this.Controls.Add(this.studentList);
             this.Controls.Add(this.examTitleList);
             this.Controls.Add(this.examCodeList);
             this.Controls.Add(this.btnCancel);
@@ -267,14 +232,11 @@ namespace Xzam
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ComboBox examCodeList;
         private System.Windows.Forms.ComboBox examTitleList;
-        private System.Windows.Forms.ListBox studentList;
         private System.Windows.Forms.ComboBox qbankList;
         private System.Windows.Forms.DateTimePicker scheduledDate;
         private System.Windows.Forms.DateTimePicker startTime;
         private System.Windows.Forms.DateTimePicker endTime;
-        private System.Windows.Forms.ListBox attendStudentList;
-        private System.Windows.Forms.Button moveRight;
-        private System.Windows.Forms.Button moveLef;
+        private System.Windows.Forms.ListBox studentList;
     }
 }
 
