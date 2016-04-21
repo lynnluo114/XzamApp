@@ -22,11 +22,29 @@ CREATE TABLE [dbo].[Student] (
     [studentname] NVARCHAR (30) NOT NULL,
     [username]    NVARCHAR (20) NOT NULL,
     [password]    NVARCHAR (20) NOT NULL,
-    [scheduleid]  INT           NULL,
-    [grade]       DECIMAL (18)  NULL,
     [userid]      INT           NOT NULL,
-    CONSTRAINT [PK_Student] PRIMARY KEY ([studentid]),
-    CONSTRAINT [FK_Student_User_Table] FOREIGN KEY ([scheduleid]) REFERENCES [dbo].[ExamSchedule] ([scheduleid]),
-    CONSTRAINT [FK_Student_User_Table] FOREIGN KEY ([userid]) REFERENCES [dbo].[User_Table] ([id])
+    CONSTRAINT [PK_Student] PRIMARY KEY ([studentid])
 );
+
+CREATE TABLE [dbo].[StudentSchedule] (
+    [studentid]   NVARCHAR (10) NOT NULL,
+    [scheduleid]  INT NOT NULL,
+    [grade]       decimal NOT NULL,
+    CONSTRAINT [PK_StudentSchedule] PRIMARY KEY ([studentid],[scheduleid]), 
+    CONSTRAINT [FK_StudentSchedule_Student] FOREIGN KEY ([studentid]) REFERENCES [Student]([studentid]), 
+    CONSTRAINT [FK_StudentSchedule_ExamSchedule] FOREIGN KEY ([scheduleid]) REFERENCES [ExamSchedule]([scheduleid])
+);
+
+CREATE TABLE [dbo].[StudentGrade] (
+    [studentId]   NVARCHAR (10) NOT NULL,
+    [examcode]    NVARCHAR (20) NOT NULL,
+    [gradepoints] DECIMAL (18)  NOT NULL,
+    CONSTRAINT [PK_StudentGrade] PRIMARY KEY CLUSTERED ([studentId] ASC, [examcode] ASC),
+    CONSTRAINT [FK_StudentGrade_Student] FOREIGN KEY ([studentId]) REFERENCES [dbo].[Student] ([studentid]),
+    CONSTRAINT [FK_StudentGrade_Exam] FOREIGN KEY ([examcode]) REFERENCES [dbo].[Exam] ([examcode])
+);
+
+
+
+
 
