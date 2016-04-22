@@ -89,13 +89,13 @@ namespace Xzam
                 List<ExamSchedule> es = esda.GetExamScheduleList();
                 foreach (ExamSchedule item in es)
                 {
-                    String dateOfToday = DateTime.Today.ToShortDateString();
-                    String scheduleDate = item.ScheduleDate.Substring(0, 10);
+                    DateTime dateOfToday = DateTime.Today;
+                    DateTime scheduleDate = item.ScheduleDate;
                     if (scheduleDate == dateOfToday)
                     {
                         examArea.Visible = true;
                         lblExamTitle.Text = item.ExamTitle;
-                        lblScheduleDate.Text = scheduleDate;
+                        lblScheduleDate.Text = scheduleDate.ToShortDateString();
                         lblStartTime.Text = item.StartTime;
                         lblEndTime.Text = item.EndTime;
                         _es = item;

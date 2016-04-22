@@ -62,7 +62,7 @@ namespace Xzam.DA
                         (int)sdr["qbankid"], 
                         sdr["examcode"].ToString(), 
                         sdr["examtitle"].ToString(), 
-                        sdr["scheduledate"].ToString(), 
+                        DateTime.Parse(sdr["scheduledate"].ToString()), 
                         sdr["starttime"].ToString(), 
                         sdr["endtime"].ToString());
                     studentScheduleList.Add(es);

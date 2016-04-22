@@ -12,7 +12,7 @@ namespace Xzam.Models
         private int questionBankID;
         private String examCode;
         private String examTitle;
-        private String scheduleDate;
+        private DateTime scheduleDate;
         private String startTime;
         private String endTime;
 
@@ -53,7 +53,7 @@ namespace Xzam.Models
             }
         }
 
-        public String ScheduleDate
+        public DateTime ScheduleDate
         {
             get { return this.scheduleDate; }
             set
@@ -88,7 +88,7 @@ namespace Xzam.Models
             }
         }
 
-        public ExamSchedule(int scheduleID, int questionBankID, String examCode,String examTitle, String scheduleDate, String startTime, String endTime)
+        public ExamSchedule(int scheduleID, int questionBankID, String examCode,String examTitle, DateTime scheduleDate, String startTime, String endTime)
         {
             ScheduleID = scheduleID;
             QuestionBankID = questionBankID;

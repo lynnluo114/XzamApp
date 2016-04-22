@@ -95,7 +95,7 @@ namespace Xzam
             String examtitle = "";
             int qbankid = 0;
             int scheduleid = 0;
-            String scheduledate = "";
+            DateTime scheduledate = DateTime.Now;
             String starttime = "";
             String endtime = "";
             //Valiate and get Exam Code from user input
@@ -141,7 +141,7 @@ namespace Xzam
             }
             else
             {
-                scheduledate = scheduledDate.Value.ToShortDateString();
+                scheduledate = scheduledDate.Value;
             }
             if (startTime.Value.ToString().Equals(""))
             {

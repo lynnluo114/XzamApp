@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Xzam.Models;
 using Xzam.DA;
+using Xzam.Utility;
 
 namespace Xzam
 {
     public partial class frmExamScreenforStudent : Form
     {
-        private QuestionBank _qb;
+        private QuestionCollection _qc;
         private Question _q;
         private String _studentid;
         private String _examcode;
@@ -25,8 +26,8 @@ namespace Xzam
         private RadioButton[] rd;
         private List<Option> _options;
         QuestionDataAccess qda;
-        StudentGradeDataAccess sgda;
-        StudentScheduleDataAccess ssda;
+        StudentGradeDataAccess sgda = new StudentGradeDataAccess();
+        StudentScheduleDataAccess ssda = new StudentScheduleDataAccess();
 
         private void ExamScreenforStudent_Load(object sender, EventArgs e)
         {
@@ -37,14 +38,17 @@ namespace Xzam
         {
             InitializeComponent();
             qda = new QuestionDataAccess() ;
-            sgda = new StudentGradeDataAccess();
-            ssda = new StudentScheduleDataAccess();
-            _qb = new QuestionBank(qda.GetList(qbankid));
-            _q = _qb.QuestionList.ToList()[0];
+            //sgda = new StudentGradeDataAccess();
+            //ssda = new StudentScheduleDataAccess();
+            _qc = qda.GetList(qbankid);
+            Shuffle.Do(ref _qc);
+            //_qb = new QuestionBank(qc);
+            //_q = _qb.QuestionList.ToList()[0];
+            _q = _qc.ToList()[0];
             _studentid = studentid;
             _examcode = examcode;
             _scheduleid = scheduleid;
-            foreach (Question q in _qb.QuestionList)
+            foreach (Question q in _qc)
                 _gradePoints += q.GradePoint;
             //this.btnPrev.Visible = _qb.BackTrack;
         }
@@ -56,7 +60,7 @@ namespace Xzam
                 if (rd != null)
                 {
                     for (int i = 0; i < rd.Length; i++)
-                        this.Controls.Remove(rd[i]);
+                        this.panelOptions.Controls.Remove(rd[i]);
                 }
                 this.labelQuestionText.Text = _q.QuestionTitle;
                 RadioButton[] radioButton = new RadioButton[_q.Options.Count];
@@ -69,10 +73,11 @@ namespace Xzam
                     radioButton[i].Location = new Point(20, 5 + i * 20);
                     radioButton[i].Text = _options[i].Code + "." + _options[i].Value;
                     radioButton[i].AutoSize = true;
-                    this.Controls.Add(radioButton[i]);                    
+                    this.panelOptions.Controls.Add(radioButton[i]);                    
                     rd[i] = radioButton[i];
                 }
-                this.panelOptions.Controls.AddRange(rd);
+
+                //this.panelOptions.Controls.AddRange(rd);
                 //this.Controls.AddRange(rd);
             }            
         }
@@ -90,7 +95,7 @@ namespace Xzam
                     }
                 }
                 _index--;
-                this._q = _qb.QuestionList.ToList()[_index];
+                this._q = _qc.ToList()[_index];
                 LoadQuestion();
             }
             else
@@ -101,7 +106,7 @@ namespace Xzam
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (_index < _qb.QuestionList.Count-1)
+            if (_index < _qc.Count-1)
             {
                 for (int i = 0; i < rd.Length; i++)
                 {
@@ -112,7 +117,7 @@ namespace Xzam
                     }
                 }
                 _index++;
-                this._q = _qb.QuestionList.ToList()[_index];
+                this._q = _qc.ToList()[_index];
                 LoadQuestion();
             }
             else
