@@ -113,7 +113,7 @@ namespace Xzam
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(87, 399);
+            this.btnCreate.Location = new System.Drawing.Point(27, 399);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 7;
@@ -123,7 +123,7 @@ namespace Xzam
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(336, 399);
+            this.btnCancel.Location = new System.Drawing.Point(245, 399);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 8;
@@ -136,7 +136,7 @@ namespace Xzam
             this.examCodeList.FormattingEnabled = true;
             this.examCodeList.Location = new System.Drawing.Point(120, 13);
             this.examCodeList.Name = "examCodeList";
-            this.examCodeList.Size = new System.Drawing.Size(121, 21);
+            this.examCodeList.Size = new System.Drawing.Size(200, 21);
             this.examCodeList.TabIndex = 9;
             this.examCodeList.SelectedIndexChanged += new System.EventHandler(this.examCodeList_SelectedIndexChanged);
             // 
@@ -145,7 +145,7 @@ namespace Xzam
             this.examTitleList.FormattingEnabled = true;
             this.examTitleList.Location = new System.Drawing.Point(120, 46);
             this.examTitleList.Name = "examTitleList";
-            this.examTitleList.Size = new System.Drawing.Size(121, 21);
+            this.examTitleList.Size = new System.Drawing.Size(200, 21);
             this.examTitleList.TabIndex = 10;
             this.examTitleList.SelectedIndexChanged += new System.EventHandler(this.examTitleList_SelectedIndexChanged);
             // 
@@ -187,14 +187,14 @@ namespace Xzam
             this.studentList.FormattingEnabled = true;
             this.studentList.Location = new System.Drawing.Point(120, 111);
             this.studentList.Name = "studentList";
-            this.studentList.Size = new System.Drawing.Size(120, 95);
+            this.studentList.Size = new System.Drawing.Size(200, 95);
             this.studentList.TabIndex = 16;
             // 
             // frmSchedulerCreation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 453);
+            this.ClientSize = new System.Drawing.Size(406, 453);
             this.Controls.Add(this.studentList);
             this.Controls.Add(this.endTime);
             this.Controls.Add(this.startTime);

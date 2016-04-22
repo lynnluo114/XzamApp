@@ -80,22 +80,18 @@ namespace Xzam.DA
             return studentlist;
         }
 
-        public StudentCollection GetStudentScheduleList()
+        public String GetStudentID(String userName)
         {
-            StudentCollection studentlist = new StudentCollection();
-            Student student;
-
-            using (SqlDataReader sdr = XDbConnection.ReadDataProc("proc_getStudents", null))
+            String studentid = "";
+            using (SqlDataReader sdr = XDbConnection.ReadDataProc("proc_getStudentID", new SqlParameter[1] { new SqlParameter(("username"), userName) }))
             {
-                while (sdr.Read())
+                if (sdr.Read())
                 {
-                    student = new Student(sdr["studentid"].ToString(), sdr["studentname"].ToString());
-                    studentlist.AddStudent(student);
+                    studentid = sdr["studentid"].ToString();
                 }
-                student = null;
                 sdr.Close();// not necessary but still to be on the safe side
             }
-            return studentlist;
+            return studentid;
         }
     }
 }

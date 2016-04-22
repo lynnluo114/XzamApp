@@ -52,12 +52,13 @@
     <Compile Include="DA\OptionDataAccess.cs" />
     <Compile Include="DA\QuestionDataAccess.cs" />
     <Compile Include="DA\StudentDataAccess.cs" />
+    <Compile Include="DA\StudentGradeDataAccess.cs" />
     <Compile Include="DA\StudentScheduleDataAccess.cs" />
-    <Compile Include="ExamScreenforStudent.cs">
+    <Compile Include="frmExamScreenforStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ExamScreenforStudent.Designer.cs">
-      <DependentUpon>ExamScreenforStudent.cs</DependentUpon>
+    <Compile Include="frmExamScreenforStudent.Designer.cs">
+      <DependentUpon>frmExamScreenforStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddNewStudent.cs">
       <SubType>Form</SubType>
@@ -115,6 +116,10 @@
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\QuestionBank.cs" />
     <Compile Include="Models\QuestionCollection.cs" />
+    <Compile Include="Models\StudentSchedule.cs" />
+    <Compile Include="Models\StudentScheduleCollection.cs" />
+    <Compile Include="Models\StudentGrade.cs" />
+    <Compile Include="Models\StudentGradeCollection.cs" />
     <Compile Include="DA\QuestionBankDataAccess.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="frmSchedulerCreation.cs">
@@ -138,8 +143,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>USERDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ExamScreenforStudent.resx">
-      <DependentUpon>ExamScreenforStudent.cs</DependentUpon>
+    <EmbeddedResource Include="frmExamScreenforStudent.resx">
+      <DependentUpon>frmExamScreenforStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddNewStudent.resx">
       <DependentUpon>frmAddNewStudent.cs</DependentUpon>

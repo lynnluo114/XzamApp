@@ -17,10 +17,12 @@ namespace Xzam
         private string username;
         private string password;
 
+        private ExamSchedule _es;
         private ExamSetup frm2;
         private frmQuestionBankSetup frm3;
         private frmSchedulerCreation frm4;
         private ExamScheduleDataAccess esda;
+        private StudentDataAccess sda;
 
         public frmMain()
         {
@@ -32,6 +34,8 @@ namespace Xzam
             this.username = username;
             this.password = password;
             lblCurrentUser.Text = username;
+            esda = new ExamScheduleDataAccess();
+            sda = new StudentDataAccess();
         }
 
         frmUserMaintenance frm1 = new frmUserMaintenance();
@@ -82,24 +86,23 @@ namespace Xzam
                 toolStripButtonQuestionBank.Enabled = false;
                 toolStripButtonUserManagement.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
                 toolStripButtonUserManagement.Enabled = false;
-                examArea.Visible = true;
-                List<ExamSchedule> es = esda.GetStudentScheduleList(username);
-                foreach (var item in es)
+                List<ExamSchedule> es = esda.GetExamScheduleList();
+                foreach (ExamSchedule item in es)
                 {
-                    if (item.ScheduleDate == DateTime.Today.ToShortDateString())
+                    String dateOfToday = DateTime.Today.ToShortDateString();
+                    String scheduleDate = item.ScheduleDate.Substring(0, 10);
+                    if (scheduleDate == dateOfToday)
                     {
+                        examArea.Visible = true;
                         lblExamTitle.Text = item.ExamTitle;
-                        lblScheduleDate.Text = item.ScheduleDate;
+                        lblScheduleDate.Text = scheduleDate;
                         lblStartTime.Text = item.StartTime;
                         lblEndTime.Text = item.EndTime;
-                        if (DateTime.Parse(item.StartTime) <= DateTime.Parse(DateTime.Now.ToShortTimeString()))
-                        {
-                            btnStart.Enabled = true;
-                        }
-                        else
-                        {
-                            btnStart.Enabled = false;
-                        }
+                        _es = item;
+                    }
+                    else
+                    {
+                        examArea.Visible = false;
                     }                    
                 }
             }
@@ -172,6 +175,20 @@ namespace Xzam
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            if (DateTime.Parse(_es.StartTime) <= DateTime.Parse(DateTime.Now.ToShortTimeString()))
+            {
+                String studentid = sda.GetStudentID(username);
+                frmExamScreenforStudent esfs = new frmExamScreenforStudent(studentid, _es.ScheduleID, _es.ExamCode, _es.QuestionBankID);
+                esfs.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Exam has not started!");
+            }
         }
     }
 }

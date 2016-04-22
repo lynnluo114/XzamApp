@@ -12,48 +12,40 @@ using Xzam.DA;
 
 namespace Xzam
 {
-    public partial class ExamScreenforStudent : Form
+    public partial class frmExamScreenforStudent : Form
     {
         private QuestionBank _qb;
         private Question _q;
-        private Student _stu;
-        private int index = 0;
-        private double totalPoints = 0;
-        private double points = 0;
-        private RadioButton[] rd = null;
-        private List<Option> _options = null;
-        StudentDataAccess sda = null;
+        private String _studentid;
+        private String _examcode;
+        private int _scheduleid;
+        private int _index = 0;
+        private double _gradePoints = 0;
+        private double _grade = 0;
+        private RadioButton[] rd;
+        private List<Option> _options;
+        QuestionDataAccess qda;
+        StudentGradeDataAccess sgda;
+        StudentScheduleDataAccess ssda;
 
-        public QuestionBank QuesBank
-        {
-            set { _qb = value; }
-            get { return _qb; }
-        }
-
-        public Question Ques
-        {
-            set { _q = value; }
-            get { return _q; }
-        }
-
-        public Student Stu
-        {
-            set { _stu = value; }
-            get { return _stu; }
-        }
         private void ExamScreenforStudent_Load(object sender, EventArgs e)
         {
             LoadQuestion();
         }
 
-        public ExamScreenforStudent(Student stu, QuestionBank qb)
+        public frmExamScreenforStudent(String studentid,int scheduleid,String examcode, int qbankid)
         {
             InitializeComponent();
-            _qb = qb;
-            _q = qb.QuestionList.ToList()[0];
-            _stu = stu;
+            qda = new QuestionDataAccess() ;
+            sgda = new StudentGradeDataAccess();
+            ssda = new StudentScheduleDataAccess();
+            _qb = new QuestionBank(qda.GetList(qbankid));
+            _q = _qb.QuestionList.ToList()[0];
+            _studentid = studentid;
+            _examcode = examcode;
+            _scheduleid = scheduleid;
             foreach (Question q in _qb.QuestionList)
-                totalPoints += q.GradePoint;
+                _gradePoints += q.GradePoint;
             //this.btnPrev.Visible = _qb.BackTrack;
         }
 
@@ -66,7 +58,7 @@ namespace Xzam
                     for (int i = 0; i < rd.Length; i++)
                         this.Controls.Remove(rd[i]);
                 }
-                this.lblQuestionText.Text = _q.QuestionTitle;
+                this.labelQuestionText.Text = _q.QuestionTitle;
                 RadioButton[] radioButton = new RadioButton[_q.Options.Count];
                 rd = new RadioButton[_q.Options.Count];
 
@@ -74,30 +66,31 @@ namespace Xzam
                 for (int i = 0; i < _q.Options.Count; i++)
                 {
                     radioButton[i] = new RadioButton();
-                    radioButton[i].Location = new Point(30, 100 + i * 20);
+                    radioButton[i].Location = new Point(20, 5 + i * 20);
                     radioButton[i].Text = _options[i].Code + "." + _options[i].Value;
                     radioButton[i].AutoSize = true;
-                    this.Controls.Add(radioButton[i]);
-                    
+                    this.Controls.Add(radioButton[i]);                    
                     rd[i] = radioButton[i];
                 }
+                this.panelOptions.Controls.AddRange(rd);
+                //this.Controls.AddRange(rd);
             }            
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            if (index > 0)
+            if (_index > 0)
             {
                 for (int i = 0; i < rd.Length; i++)
                 {
                     if (rd[i].Checked) 
                     {
                         if (_options[i].Code == _q.CorrectOption)
-                            points += _q.GradePoint;
+                            _grade += _q.GradePoint;
                     }
                 }
-                index--;
-                this._q = _qb.QuestionList.ToList()[index];
+                _index--;
+                this._q = _qb.QuestionList.ToList()[_index];
                 LoadQuestion();
             }
             else
@@ -108,18 +101,18 @@ namespace Xzam
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (index < _qb.QuestionList.Count-1)
+            if (_index < _qb.QuestionList.Count-1)
             {
                 for (int i = 0; i < rd.Length; i++)
                 {
                     if (rd[i].Checked)
                     {
                         if (_options[i].Code == _q.CorrectOption)
-                            points += _q.GradePoint;
+                            _grade += _q.GradePoint;
                     }
                 }
-                index++;
-                this._q = _qb.QuestionList.ToList()[index];
+                _index++;
+                this._q = _qb.QuestionList.ToList()[_index];
                 LoadQuestion();
             }
             else
@@ -130,8 +123,9 @@ namespace Xzam
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Attempt score: " + points + " out of " + totalPoints);
-            sda.SaveGrade(_stu, points);
+            MessageBox.Show("Attempt score: " + _grade + " out of " + _gradePoints);
+            ssda.SaveStudentSchedule(_studentid, _scheduleid, _grade);
+            sgda.SaveStudentGrade(_studentid, _examcode, _gradePoints);
         }
     }
 }

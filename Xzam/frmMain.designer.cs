@@ -47,15 +47,15 @@
             this.viewScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.examArea = new System.Windows.Forms.GroupBox();
-            this.lbl1 = new System.Windows.Forms.Label();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.lbl = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblExamTitle = new System.Windows.Forms.Label();
-            this.lblScheduleDate = new System.Windows.Forms.Label();
-            this.lblStartTime = new System.Windows.Forms.Label();
             this.lblEndTime = new System.Windows.Forms.Label();
+            this.lblStartTime = new System.Windows.Forms.Label();
+            this.lblScheduleDate = new System.Windows.Forms.Label();
+            this.lblExamTitle = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl = new System.Windows.Forms.Label();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.lbl1 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.examArea.SuspendLayout();
@@ -238,48 +238,48 @@
             this.examArea.Controls.Add(this.lbl);
             this.examArea.Controls.Add(this.btnStart);
             this.examArea.Controls.Add(this.lbl1);
-            this.examArea.Location = new System.Drawing.Point(0, 111);
+            this.examArea.Location = new System.Drawing.Point(12, 111);
             this.examArea.Name = "examArea";
             this.examArea.Size = new System.Drawing.Size(323, 181);
             this.examArea.TabIndex = 6;
             this.examArea.TabStop = false;
             this.examArea.Text = "Exam Available";
             // 
-            // lbl1
+            // lblEndTime
             // 
-            this.lbl1.AutoSize = true;
-            this.lbl1.Location = new System.Drawing.Point(7, 33);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(59, 13);
-            this.lbl1.TabIndex = 0;
-            this.lbl1.Text = "Exam Title:";
+            this.lblEndTime.AutoSize = true;
+            this.lblEndTime.Location = new System.Drawing.Point(112, 120);
+            this.lblEndTime.Name = "lblEndTime";
+            this.lblEndTime.Size = new System.Drawing.Size(70, 13);
+            this.lblEndTime.TabIndex = 8;
+            this.lblEndTime.Text = "Not Available";
             // 
-            // btnStart
+            // lblStartTime
             // 
-            this.btnStart.Location = new System.Drawing.Point(219, 121);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
-            this.btnStart.TabIndex = 1;
-            this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = true;
+            this.lblStartTime.AutoSize = true;
+            this.lblStartTime.Location = new System.Drawing.Point(112, 92);
+            this.lblStartTime.Name = "lblStartTime";
+            this.lblStartTime.Size = new System.Drawing.Size(70, 13);
+            this.lblStartTime.TabIndex = 7;
+            this.lblStartTime.Text = "Not Available";
             // 
-            // lbl
+            // lblScheduleDate
             // 
-            this.lbl.AutoSize = true;
-            this.lbl.Location = new System.Drawing.Point(7, 62);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(81, 13);
-            this.lbl.TabIndex = 2;
-            this.lbl.Text = "Schedule Date:";
+            this.lblScheduleDate.AutoSize = true;
+            this.lblScheduleDate.Location = new System.Drawing.Point(112, 61);
+            this.lblScheduleDate.Name = "lblScheduleDate";
+            this.lblScheduleDate.Size = new System.Drawing.Size(70, 13);
+            this.lblScheduleDate.TabIndex = 6;
+            this.lblScheduleDate.Text = "Not Available";
             // 
-            // label1
+            // lblExamTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 93);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Start Time:";
+            this.lblExamTitle.AutoSize = true;
+            this.lblExamTitle.Location = new System.Drawing.Point(112, 33);
+            this.lblExamTitle.Name = "lblExamTitle";
+            this.lblExamTitle.Size = new System.Drawing.Size(70, 13);
+            this.lblExamTitle.TabIndex = 5;
+            this.lblExamTitle.Text = "Not Available";
             // 
             // label2
             // 
@@ -290,41 +290,42 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "EndTime:";
             // 
-            // lblExamTitle
+            // label1
             // 
-            this.lblExamTitle.AutoSize = true;
-            this.lblExamTitle.Location = new System.Drawing.Point(109, 32);
-            this.lblExamTitle.Name = "lblExamTitle";
-            this.lblExamTitle.Size = new System.Drawing.Size(35, 13);
-            this.lblExamTitle.TabIndex = 5;
-            this.lblExamTitle.Text = "label3";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 93);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Start Time:";
             // 
-            // lblScheduleDate
+            // lbl
             // 
-            this.lblScheduleDate.AutoSize = true;
-            this.lblScheduleDate.Location = new System.Drawing.Point(112, 61);
-            this.lblScheduleDate.Name = "lblScheduleDate";
-            this.lblScheduleDate.Size = new System.Drawing.Size(35, 13);
-            this.lblScheduleDate.TabIndex = 6;
-            this.lblScheduleDate.Text = "label4";
+            this.lbl.AutoSize = true;
+            this.lbl.Location = new System.Drawing.Point(7, 62);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(81, 13);
+            this.lbl.TabIndex = 2;
+            this.lbl.Text = "Schedule Date:";
             // 
-            // lblStartTime
+            // btnStart
             // 
-            this.lblStartTime.AutoSize = true;
-            this.lblStartTime.Location = new System.Drawing.Point(112, 92);
-            this.lblStartTime.Name = "lblStartTime";
-            this.lblStartTime.Size = new System.Drawing.Size(35, 13);
-            this.lblStartTime.TabIndex = 7;
-            this.lblStartTime.Text = "label5";
+            this.btnStart.Location = new System.Drawing.Point(219, 121);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.TabIndex = 1;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // lblEndTime
+            // lbl1
             // 
-            this.lblEndTime.AutoSize = true;
-            this.lblEndTime.Location = new System.Drawing.Point(112, 120);
-            this.lblEndTime.Name = "lblEndTime";
-            this.lblEndTime.Size = new System.Drawing.Size(35, 13);
-            this.lblEndTime.TabIndex = 8;
-            this.lblEndTime.Text = "label6";
+            this.lbl1.AutoSize = true;
+            this.lbl1.Location = new System.Drawing.Point(7, 33);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(59, 13);
+            this.lbl1.TabIndex = 0;
+            this.lbl1.Text = "Exam Title:";
             // 
             // frmMain
             // 

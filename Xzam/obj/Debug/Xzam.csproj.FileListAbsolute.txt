@@ -30,11 +30,9 @@ C:\Users\Luja\Source\Repos\XzamApp\Xzam\bin\Debug\Xzam.pdb
 C:\Users\Luja\Source\Repos\XzamApp\Xzam\obj\Debug\Xzam.csprojResolveAssemblyReference.cache
 C:\Users\Luja\Source\Repos\XzamApp\Xzam\obj\Debug\Xzam.exe
 C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\bin\Debug\Xzam.exe.config
-C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.exe
-C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.pdb
 C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\bin\Debug\Xzam.exe
 C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\bin\Debug\Xzam.pdb
-C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.ExamScreenforStudent.resources
+C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.frmExamScreenforStudent.resources
 C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.frmAddNewStudent.resources
 C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.frmAdminChangePassword.resources
 C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.frmChangePassword.resources
@@ -47,4 +45,5 @@ C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.frmUserMaintenance.re
 C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.Properties.Resources.resources
 C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.frmQuestionBankSetup.resources
 C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.csproj.GenerateResource.Cache
-C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.csprojResolveAssemblyReference.cache
+C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.exe
+C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.pdb

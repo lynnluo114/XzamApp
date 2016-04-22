@@ -93,6 +93,12 @@ namespace Xzam
             bool success = true;
             String examcode = "";
             String examtitle = "";
+            int qbankid = 0;
+            int scheduleid = 0;
+            String scheduledate = "";
+            String starttime = "";
+            String endtime = "";
+            //Valiate and get Exam Code from user input
             if (examCodeList.SelectedItem.ToString().Equals(""))
             {
                 success = false;
@@ -102,7 +108,7 @@ namespace Xzam
             {
                 examcode = examCodeList.SelectedItem.ToString();
             }
-
+            //Validate and get Exam Title from user input
             if (examTitleList.SelectedItem.ToString().Equals(""))
             {
                 success = false;
@@ -112,9 +118,8 @@ namespace Xzam
             {
                 examtitle = examTitleList.SelectedItem.ToString();
             }
-            int qbankid = 0;
-            List<String> studentIDs = new List<String>();
-            int scheduleid = 0;
+
+            //Validate and get QuestionBank ID from user input
             if (qbankList.SelectedItem.ToString().Equals(""))
             {
                 success = false;
@@ -129,23 +134,42 @@ namespace Xzam
                 }
             }
 
-            String scheduledate = scheduledDate.Value.ToShortDateString();
-            String starttime = startTime.Value.ToShortTimeString();
-            String endtime = endTime.Value.ToShortTimeString();
+            if (scheduledDate.Value.ToString().Equals(""))
+            {
+                success = false;
+                MessageBox.Show("Schdule Date is required!");
+            }
+            else
+            {
+                scheduledate = scheduledDate.Value.ToShortDateString();
+            }
+            if (startTime.Value.ToString().Equals(""))
+            {
+                success = false;
+                MessageBox.Show("Start Time is required!");
+            }
+            else
+            {
+                starttime = startTime.Value.ToShortTimeString();
+            }
+            if (endTime.Value.ToString().Equals(""))
+            {
+                success = false;
+                MessageBox.Show("End Time is required!");
+            }
+            else
+            {
+                endtime = endTime.Value.ToShortTimeString();
+            }
+
             ExamSchedule es = new ExamSchedule(scheduleid, qbankid, examcode, examtitle, scheduledate, starttime, endtime);
             try
             {
                 scheduleid = esda.SaveData(es);
-                foreach (String studentID in studentIDs)
-                {
-                    Student student = new Student(studentID, scheduleid);
-                    sda.SaveData(student);
-                }
                 MessageBox.Show("Data saved successfully", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally

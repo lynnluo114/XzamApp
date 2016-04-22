@@ -4,6 +4,12 @@ BEGIN
 	SELECT examcode, examtitle FROM Exam
 END
 
+CREATE procedure [dbo].[proc_getExamSchedule]
+as
+begin
+	select scheduleid,Exam.examcode,Exam.examtitle as examtitle,qbankid,scheduledate,starttime,endtime from Exam,ExamSchedule
+	where Exam.examcode = ExamSchedule.examcode
+end
 
 CREATE PROCEDURE [dbo].[proc_getStudents]
 AS
@@ -28,22 +34,22 @@ begin
     SELECT @scheduleid = SCOPE_IDENTITY()
 end
 
-CREATE procedure [dbo].[proc_saveStduentGrade] @studentid nvarchar(10),@examcode nvarchar(20),@grade decimal
+CREATE procedure [dbo].[proc_saveStduentGrade] @studentid nvarchar(10),@examcode nvarchar(20),@gradepoints decimal
 as
 begin
-	insert into StudentGrade values(@studentid,@examcode,@grade);
+	insert into StudentGrade values(@studentid,@examcode,@gradepoints);
 end
 
-CREATE procedure [dbo].[proc_saveStduentSchedule] @studentid nvarchar(10),@scheduleid int,@gradepoints decimal
+CREATE procedure [dbo].[proc_saveStduentSchedule] @studentid nvarchar(10),@scheduleid int,@grade decimal
 as
 begin
-	insert into StudentSchedule values(@studentid,@scheduleid,@gradepoints);
+	insert into StudentSchedule values(@studentid,@scheduleid,@grade);
 end
 
-CREATE procedure [dbo].[proc_getStudentSchedule]
+CREATE procedure [dbo].[proc_getStduentSchedule]
 as
 begin
-	select scheduleid as scheduleid,Exam.examcode as examcode,Exam.examtitle as examtitle,scheduledate,starttime,endtime from Exam,ExamSchedule
-	where Exam.examcode = ExamSchedule.examcode 
+	select studentid,scheduleid,grade from StudentSchedule;
 end
-GO
+
+
