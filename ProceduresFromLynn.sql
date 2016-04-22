@@ -52,4 +52,11 @@ begin
 	select studentid,scheduleid,grade from StudentSchedule;
 end
 
-
+CREATE PROCEDURE [dbo].[proc_getStudentID]
+	@username nvarchar(20)
+AS
+BEGIN
+	SELECT studentid FROM Student,USER_TABLE
+	WHERE Student.userid=USER_TABLE.Id
+	AND USER_TABLE.Username=@username;
+END
