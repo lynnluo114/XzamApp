@@ -47,3 +47,4 @@ C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.frmUserMaintenance.re
 C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.Properties.Resources.resources
 C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.frmQuestionBankSetup.resources
 C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.csproj.GenerateResource.Cache
+C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.csprojResolveAssemblyReference.cache

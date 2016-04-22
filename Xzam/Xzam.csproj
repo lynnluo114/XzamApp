@@ -52,6 +52,7 @@
     <Compile Include="DA\OptionDataAccess.cs" />
     <Compile Include="DA\QuestionDataAccess.cs" />
     <Compile Include="DA\StudentDataAccess.cs" />
+    <Compile Include="DA\StudentScheduleDataAccess.cs" />
     <Compile Include="ExamScreenforStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,7 +216,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <Folder Include="Utility\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>
