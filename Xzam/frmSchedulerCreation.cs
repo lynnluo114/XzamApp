@@ -47,7 +47,8 @@ namespace Xzam
 
             foreach (Student student in sda.GetList())
             {
-                studentList.Items.Add(student.StudentName);
+                if (!student.StudentID.Equals("admin"))
+                    studentList.Items.Add(student.StudentName);
             }
         }
 

@@ -19,49 +19,6 @@ namespace Xzam.DA
             XDbConnection.Disconnect();
         }
 
-        public int SaveData(Student student)
-        {
-            if (student == null)
-            {
-                throw new Exception("No data found to save");
-            }
-            int affectedRow;
-            try
-            {
-                SqlParameter[] scol = new SqlParameter[2];
-                scol[0] = new SqlParameter("@scheduleid", student.ScheduleID);
-                scol[1] = new SqlParameter("@studentid", student.StudentID);               
-                affectedRow = XDbConnection.ExecuteWithParam("proc_saveStduentSchedule", scol);
-                return affectedRow;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public int SaveGrade(Student student,double grade)
-        {
-            if (student == null)
-            {
-                throw new Exception("No data found to save");
-            }
-            int affectedRow;
-            try
-            {
-                SqlParameter[] scol = new SqlParameter[3];
-                scol[0] = new SqlParameter("@scheduleid", student.ScheduleID);
-                scol[1] = new SqlParameter("@studentid", student.StudentID);
-                scol[2] = new SqlParameter("@grade", grade);
-                affectedRow = XDbConnection.ExecuteWithParam("proc_saveStudentGrade", scol);
-                return affectedRow;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
         public StudentCollection GetList()
         {
             StudentCollection studentlist = new StudentCollection();
@@ -71,27 +28,13 @@ namespace Xzam.DA
             {
                 while (sdr.Read())
                 {
-                    student = new Student(sdr["studentid"].ToString(), sdr["studentname"].ToString());
+                    student = new Student(sdr["Username"].ToString(), sdr["Fullname"].ToString());
                     studentlist.AddStudent(student);
                 }
                 student = null;
                 sdr.Close();// not necessary but still to be on the safe side
             }
             return studentlist;
-        }
-
-        public String GetStudentID(String userName)
-        {
-            String studentid = "";
-            using (SqlDataReader sdr = XDbConnection.ReadDataProc("proc_getStudentID", new SqlParameter[1] { new SqlParameter(("username"), userName) }))
-            {
-                if (sdr.Read())
-                {
-                    studentid = sdr["studentid"].ToString();
-                }
-                sdr.Close();// not necessary but still to be on the safe side
-            }
-            return studentid;
         }
     }
 }

@@ -14,7 +14,7 @@ end
 CREATE PROCEDURE [dbo].[proc_getStudents]
 AS
 BEGIN
-	SELECT studentid, studentname FROM Student
+	SELECT Username, Fullname FROM USER_TABLE
 END
 
 create procedure [dbo].[proc_saveExam] @examcode nvarchar(20), 
@@ -40,23 +40,15 @@ begin
 	insert into StudentGrade values(@studentid,@examcode,@gradepoints);
 end
 
-CREATE procedure [dbo].[proc_saveStduentSchedule] @studentid nvarchar(10),@scheduleid int,@grade decimal
+CREATE procedure [dbo].[proc_saveStudentSchedule] @studentid nvarchar(10),@scheduleid int,@grade decimal
 as
 begin
 	insert into StudentSchedule values(@studentid,@scheduleid,@grade);
 end
 
-CREATE procedure [dbo].[proc_getStduentSchedule]
+CREATE procedure [dbo].[proc_getStudentSchedule]
 as
 begin
 	select studentid,scheduleid,grade from StudentSchedule;
 end
 
-CREATE PROCEDURE [dbo].[proc_getStudentID]
-	@username nvarchar(20)
-AS
-BEGIN
-	SELECT studentid FROM Student,USER_TABLE
-	WHERE Student.userid=USER_TABLE.Id
-	AND USER_TABLE.Username=@username;
-END

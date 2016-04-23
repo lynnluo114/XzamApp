@@ -181,7 +181,7 @@ namespace Xzam
         {
             if (DateTime.Parse(_es.StartTime) <= DateTime.Parse(DateTime.Now.ToShortTimeString()))
             {
-                String studentid = sda.GetStudentID(username);
+                String studentid = username;
                 frmExamScreenforStudent esfs = new frmExamScreenforStudent(studentid, _es.ScheduleID, _es.ExamCode, _es.QuestionBankID);
                 esfs.ShowDialog();
             }

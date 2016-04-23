@@ -17,31 +17,22 @@ CREATE TABLE [dbo].[ExamSchedule] (
     CONSTRAINT [FK_ExamSchedule_Exam] FOREIGN KEY ([examcode]) REFERENCES [dbo].[Exam] ([examcode])
 );
 
-CREATE TABLE [dbo].[Student] (
-    [studentid]   NVARCHAR (10) NOT NULL,
-    [studentname] NVARCHAR (30) NOT NULL,
-    [username]    NVARCHAR (20) NOT NULL,
-    [password]    NVARCHAR (20) NOT NULL,
-    [userid]      INT           NOT NULL,
-    CONSTRAINT [PK_Student] PRIMARY KEY ([studentid])
-);
-
 CREATE TABLE [dbo].[StudentSchedule] (
-    [studentid]   NVARCHAR (10) NOT NULL,
-    [scheduleid]  INT NOT NULL,
-    [grade]       decimal NOT NULL,
-    CONSTRAINT [PK_StudentSchedule] PRIMARY KEY ([studentid],[scheduleid]), 
-    CONSTRAINT [FK_StudentSchedule_Student] FOREIGN KEY ([studentid]) REFERENCES [Student]([studentid]), 
-    CONSTRAINT [FK_StudentSchedule_ExamSchedule] FOREIGN KEY ([scheduleid]) REFERENCES [ExamSchedule]([scheduleid])
+    [studentid]  VARCHAR (20) NOT NULL,
+    [scheduleid] INT           NOT NULL,
+    [grade]      DECIMAL (18)  NOT NULL,
+    CONSTRAINT [PK_StudentSchedule] PRIMARY KEY CLUSTERED ([studentid] ASC, [scheduleid] ASC),
+    CONSTRAINT [FK_StudentSchedule_ExamSchedule] FOREIGN KEY ([scheduleid]) REFERENCES [dbo].[ExamSchedule] ([scheduleid]), 
+    CONSTRAINT [FK_StudentSchedule_USER_TABLE] FOREIGN KEY ([studentid]) REFERENCES [USER_TABLE]([Username])
 );
 
 CREATE TABLE [dbo].[StudentGrade] (
-    [studentId]   NVARCHAR (10) NOT NULL,
+    [studentId]   VARCHAR(20) NOT NULL,
     [examcode]    NVARCHAR (20) NOT NULL,
     [gradepoints] DECIMAL (18)  NOT NULL,
     CONSTRAINT [PK_StudentGrade] PRIMARY KEY CLUSTERED ([studentId] ASC, [examcode] ASC),
-    CONSTRAINT [FK_StudentGrade_Student] FOREIGN KEY ([studentId]) REFERENCES [dbo].[Student] ([studentid]),
-    CONSTRAINT [FK_StudentGrade_Exam] FOREIGN KEY ([examcode]) REFERENCES [dbo].[Exam] ([examcode])
+    CONSTRAINT [FK_StudentGrade_Exam] FOREIGN KEY ([examcode]) REFERENCES [dbo].[Exam] ([examcode]), 
+    CONSTRAINT [FK_StudentGrade_USER_TABLE] FOREIGN KEY ([studentid]) REFERENCES [USER_TABLE]([Username])
 );
 
 
