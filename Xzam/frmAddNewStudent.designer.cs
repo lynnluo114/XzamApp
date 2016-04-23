@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtAddName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCancelAddNewStudent = new System.Windows.Forms.Button();
@@ -42,22 +40,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(89, 217);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Name";
-            // 
-            // txtAddName
-            // 
-            this.txtAddName.Location = new System.Drawing.Point(191, 214);
-            this.txtAddName.Name = "txtAddName";
-            this.txtAddName.Size = new System.Drawing.Size(100, 20);
-            this.txtAddName.TabIndex = 18;
             // 
             // panel1
             // 
@@ -123,6 +105,7 @@
             this.txtAddPassword.Name = "txtAddPassword";
             this.txtAddPassword.Size = new System.Drawing.Size(100, 20);
             this.txtAddPassword.TabIndex = 17;
+            this.txtAddPassword.TextChanged += new System.EventHandler(this.txtAddPassword_TextChanged);
             // 
             // txtAddUsername
             // 
@@ -130,6 +113,7 @@
             this.txtAddUsername.Name = "txtAddUsername";
             this.txtAddUsername.Size = new System.Drawing.Size(100, 20);
             this.txtAddUsername.TabIndex = 16;
+            this.txtAddUsername.TextChanged += new System.EventHandler(this.txtAddUsername_TextChanged);
             // 
             // txtAddId
             // 
@@ -137,6 +121,7 @@
             this.txtAddId.Name = "txtAddId";
             this.txtAddId.Size = new System.Drawing.Size(100, 20);
             this.txtAddId.TabIndex = 15;
+            this.txtAddId.TextChanged += new System.EventHandler(this.txtAddId_TextChanged);
             // 
             // btnAdd
             // 
@@ -146,6 +131,7 @@
             this.btnAdd.TabIndex = 19;
             this.btnAdd.Text = "Submit";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // frmAddNewStudent
             // 
@@ -153,8 +139,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(398, 401);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtAddName);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancelAddNewStudent);
             this.Controls.Add(this.label3);
@@ -166,7 +150,7 @@
             this.Controls.Add(this.btnAdd);
             this.Name = "frmAddNewStudent";
             this.Text = "Add New Student";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.frmAddNewStudent_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -176,8 +160,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtAddName;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCancelAddNewStudent;

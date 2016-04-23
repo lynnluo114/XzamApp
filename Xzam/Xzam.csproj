@@ -54,12 +54,6 @@
     <Compile Include="DA\StudentDataAccess.cs" />
     <Compile Include="DA\StudentGradeDataAccess.cs" />
     <Compile Include="DA\StudentScheduleDataAccess.cs" />
-    <Compile Include="frmExamScreenforStudent.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmExamScreenforStudent.Designer.cs">
-      <DependentUpon>frmExamScreenforStudent.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAddNewStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +71,12 @@
     </Compile>
     <Compile Include="frmChangePassword.designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExamScreenforStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExamScreenforStudent.Designer.cs">
+      <DependentUpon>frmExamScreenforStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="frmExamCreation.cs">
       <SubType>Form</SubType>
@@ -143,9 +143,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>USERDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmExamScreenforStudent.resx">
-      <DependentUpon>frmExamScreenforStudent.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmAddNewStudent.resx">
       <DependentUpon>frmAddNewStudent.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExamScreenforStudent.resx">
+      <DependentUpon>frmExamScreenforStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmExamCreation.resx">
       <DependentUpon>frmExamCreation.cs</DependentUpon>
@@ -206,7 +206,6 @@
     <None Include="USERDataSet.xss">
       <DependentUpon>USERDataSet.xsd</DependentUpon>
     </None>
-    <Compile Include="TESTClassForDima.cs" />
     <Compile Include="Utility\Shuffle.cs" />
   </ItemGroup>
   <ItemGroup>

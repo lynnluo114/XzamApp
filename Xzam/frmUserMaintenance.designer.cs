@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.uSERDataSet = new Xzam.USERDataSet();
             this.uSER_TABLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uSER_TABLETableAdapter = new Xzam.USERDataSetTableAdapters.USER_TABLETableAdapter();
@@ -41,9 +40,7 @@
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.uSERDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uSER_TABLEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDataSetBindingSource)).BeginInit();
@@ -95,9 +92,7 @@
             this.idDataGridViewTextBoxColumn,
             this.usernameDataGridViewTextBoxColumn,
             this.passwordDataGridViewTextBoxColumn,
-            this.fullnameDataGridViewTextBoxColumn,
-            this.Edit,
-            this.Remove});
+            this.Edit});
             this.userDataGridView.DataSource = this.uSER_TABLEBindingSource;
             this.userDataGridView.Location = new System.Drawing.Point(23, 13);
             this.userDataGridView.Margin = new System.Windows.Forms.Padding(4);
@@ -128,35 +123,17 @@
             this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
             this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // fullnameDataGridViewTextBoxColumn
-            // 
-            this.fullnameDataGridViewTextBoxColumn.DataPropertyName = "Fullname";
-            this.fullnameDataGridViewTextBoxColumn.HeaderText = "Fullname";
-            this.fullnameDataGridViewTextBoxColumn.Name = "fullnameDataGridViewTextBoxColumn";
-            this.fullnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // Edit
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = "Edit";
-            this.Edit.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "Edit";
+            this.Edit.DefaultCellStyle = dataGridViewCellStyle1;
             this.Edit.HeaderText = "";
             this.Edit.Name = "Edit";
             this.Edit.ReadOnly = true;
             this.Edit.Text = "Edit";
             this.Edit.UseColumnTextForButtonValue = true;
             this.Edit.Width = 40;
-            // 
-            // Remove
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.NullValue = "Remove";
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Remove.HeaderText = "";
-            this.Remove.Name = "Remove";
-            this.Remove.ReadOnly = true;
-            this.Remove.Text = "Remove";
-            this.Remove.UseColumnTextForButtonValue = true;
             // 
             // frmUserMaintenance
             // 
@@ -188,12 +165,11 @@
         private System.Windows.Forms.Button btnAddNewStudent;
         private System.Windows.Forms.BindingSource userDataSetBindingSource;
         private System.Windows.Forms.DataGridView userDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fullnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Edit;
-        private System.Windows.Forms.DataGridViewButtonColumn Remove;
     }
 }
 

@@ -102,21 +102,25 @@
             // 
             this.txtCurrentPassword.Location = new System.Drawing.Point(197, 57);
             this.txtCurrentPassword.Name = "txtCurrentPassword";
+            this.txtCurrentPassword.PasswordChar = '*';
             this.txtCurrentPassword.Size = new System.Drawing.Size(132, 20);
             this.txtCurrentPassword.TabIndex = 5;
+            this.txtCurrentPassword.TextChanged += new System.EventHandler(this.txtCurrentPassword_TextChanged);
             // 
             // txtNewPassword
             // 
             this.txtNewPassword.Location = new System.Drawing.Point(197, 88);
             this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.PasswordChar = '*';
             this.txtNewPassword.Size = new System.Drawing.Size(132, 20);
             this.txtNewPassword.TabIndex = 6;
-            this.txtNewPassword.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txtNewPassword.TextChanged += new System.EventHandler(this.txtNewPassword_TextChanged);
             // 
             // txtConfirmPassword
             // 
             this.txtConfirmPassword.Location = new System.Drawing.Point(197, 121);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(132, 20);
             this.txtConfirmPassword.TabIndex = 7;
             this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtConfirmPassword_TextChanged);

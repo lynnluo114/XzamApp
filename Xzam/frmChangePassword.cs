@@ -43,7 +43,12 @@ namespace Xzam
             try
             {
                 //check password validate value
-                if (t1 == t2 && t1 != null && t2 != null && t3 == password)
+                if (t3 == t2)
+                {
+                    MessageBox.Show("Password is not changed, please enter your new password");
+                }
+                //if it done
+                else if (t1 == t2 && t1 != null && t2 != null && t3 == password)
                 {
 
                     SqlConnection connectSql = new SqlConnection(cs);
@@ -56,6 +61,7 @@ namespace Xzam
                     MessageBox.Show("Change Password Successful!");
                     this.Close();
                 }
+                //else it's not correct
 
                 else
                 {
@@ -81,13 +87,18 @@ namespace Xzam
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void txtNewPassword_TextChanged(object sender, EventArgs e)
         {
-
+            txtNewPassword.Text = string.Concat(txtNewPassword.Text.Where(char.IsLetterOrDigit));
         }
         private void txtConfirmPassword_TextChanged(object sender, EventArgs e)
         {
+            txtConfirmPassword.Text = string.Concat(txtConfirmPassword.Text.Where(char.IsLetterOrDigit));
+        }
 
+        private void txtCurrentPassword_TextChanged(object sender, EventArgs e)
+        {
+            txtCurrentPassword.Text = string.Concat(txtCurrentPassword.Text.Where(char.IsLetterOrDigit));
         }
 
 

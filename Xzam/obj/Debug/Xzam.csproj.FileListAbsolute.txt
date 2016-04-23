@@ -47,3 +47,6 @@ C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.frmQuestionBankSetup.
 C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.csproj.GenerateResource.Cache
 C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.exe
 C:\Users\Lynn\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.pdb
+C:\Users\Luja\Documents\GitHub\XzamApp\Xzam\bin\Debug\Xzam.exe.config
+C:\Users\Luja\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.exe
+C:\Users\Luja\Documents\GitHub\XzamApp\Xzam\obj\Debug\Xzam.pdb

@@ -69,6 +69,7 @@
             this.txtPasswordLogin.PasswordChar = '*';
             this.txtPasswordLogin.Size = new System.Drawing.Size(141, 20);
             this.txtPasswordLogin.TabIndex = 6;
+            this.txtPasswordLogin.TextChanged += new System.EventHandler(this.txtPasswordLogin_TextChanged);
             // 
             // txtUserNLogin
             // 
@@ -76,6 +77,7 @@
             this.txtUserNLogin.Name = "txtUserNLogin";
             this.txtUserNLogin.Size = new System.Drawing.Size(141, 20);
             this.txtUserNLogin.TabIndex = 4;
+            this.txtUserNLogin.TextChanged += new System.EventHandler(this.txtUserNLogin_TextChanged);
             // 
             // label2
             // 

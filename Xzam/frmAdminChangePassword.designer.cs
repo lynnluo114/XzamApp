@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdminChangePassword));
-            this.txtNewPassword = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,12 +37,14 @@
             this.btnUserChangePassword = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txtNewPassword
+            // txtPassword
             // 
-            this.txtNewPassword.Location = new System.Drawing.Point(201, 111);
-            this.txtNewPassword.Name = "txtNewPassword";
-            this.txtNewPassword.Size = new System.Drawing.Size(132, 20);
-            this.txtNewPassword.TabIndex = 13;
+            this.txtPassword.Location = new System.Drawing.Point(201, 111);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(132, 20);
+            this.txtPassword.TabIndex = 13;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtNewPassword_TextChanged);
             // 
             // txtUsername
             // 
@@ -90,7 +92,6 @@
             // btnUserChangePassword
             // 
             this.btnUserChangePassword.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnUserChangePassword.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnUserChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserChangePassword.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserChangePassword.ForeColor = System.Drawing.Color.White;
@@ -100,6 +101,7 @@
             this.btnUserChangePassword.TabIndex = 14;
             this.btnUserChangePassword.Text = "Change Password";
             this.btnUserChangePassword.UseVisualStyleBackColor = false;
+            this.btnUserChangePassword.Click += new System.EventHandler(this.btnUserChangePassword_Click);
             // 
             // frmAdminChangePassword
             // 
@@ -110,7 +112,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.btnUserCancelChangePass;
             this.ClientSize = new System.Drawing.Size(401, 242);
-            this.Controls.Add(this.txtNewPassword);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -130,7 +132,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtNewPassword;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

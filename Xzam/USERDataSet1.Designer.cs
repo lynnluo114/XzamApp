@@ -285,8 +285,6 @@ namespace Xzam {
             
             private global::System.Data.DataColumn columnPassword;
             
-            private global::System.Data.DataColumn columnFullname;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public USER_TABLEDataTable() {
@@ -346,14 +344,6 @@ namespace Xzam {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FullnameColumn {
-                get {
-                    return this.columnFullname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,13 +379,12 @@ namespace Xzam {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public USER_TABLERow AddUSER_TABLERow(int Id, string Username, string Password, string Fullname) {
+            public USER_TABLERow AddUSER_TABLERow(int Id, string Username, string Password) {
                 USER_TABLERow rowUSER_TABLERow = ((USER_TABLERow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         Username,
-                        Password,
-                        Fullname};
+                        Password};
                 rowUSER_TABLERow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUSER_TABLERow);
                 return rowUSER_TABLERow;
@@ -421,7 +410,6 @@ namespace Xzam {
                 this.columnId = base.Columns["Id"];
                 this.columnUsername = base.Columns["Username"];
                 this.columnPassword = base.Columns["Password"];
-                this.columnFullname = base.Columns["Fullname"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -433,11 +421,8 @@ namespace Xzam {
                 base.Columns.Add(this.columnUsername);
                 this.columnPassword = new global::System.Data.DataColumn("Password", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPassword);
-                this.columnFullname = new global::System.Data.DataColumn("Fullname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFullname);
                 this.columnUsername.MaxLength = 20;
                 this.columnPassword.MaxLength = 20;
-                this.columnFullname.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -628,22 +613,6 @@ namespace Xzam {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Fullname {
-                get {
-                    try {
-                        return ((string)(this[this.tableUSER_TABLE.FullnameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Fullname\' in table \'USER_TABLE\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableUSER_TABLE.FullnameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIdNull() {
                 return this.IsNull(this.tableUSER_TABLE.IdColumn);
             }
@@ -676,18 +645,6 @@ namespace Xzam {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPasswordNull() {
                 this[this.tableUSER_TABLE.PasswordColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFullnameNull() {
-                return this.IsNull(this.tableUSER_TABLE.FullnameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFullnameNull() {
-                this[this.tableUSER_TABLE.FullnameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -853,34 +810,40 @@ namespace Xzam.USERDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Username", "Username");
             tableMapping.ColumnMappings.Add("Password", "Password");
-            tableMapping.ColumnMappings.Add("Fullname", "Fullname");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[USER_TABLE] ([Id], [Username], [Password], [Fullname]) VALUES " +
-                "(@Id, @Username, @Password, @Fullname)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[USER_TABLE] ([Id], [Username], [Password]) VALUES (@Id, @Usern" +
+                "ame, @Password)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fullname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fullname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationSettings.AppSettings["constr"].ToString();
+            this._connection.ConnectionString = global::Xzam.Properties.Settings.Default.USERConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Username, Password, Fullname FROM dbo.USER_TABLE";
+            this._commandCollection[0].CommandText = "SELECT Id, Username, Password FROM dbo.USER_TABLE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "dbo.InsertQuery";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -940,7 +903,7 @@ namespace Xzam.USERDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Id, string Username, string Password, string Fullname) {
+        public virtual int Insert(global::System.Nullable<int> Id, string Username, string Password) {
             if ((Id.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Id.Value));
             }
@@ -959,12 +922,6 @@ namespace Xzam.USERDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Password));
             }
-            if ((Fullname == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Fullname));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -979,6 +936,47 @@ namespace Xzam.USERDataSetTableAdapters {
                     this.Adapter.InsertCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int Insert1(global::System.Nullable<int> Id, string Username, string Password) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((Id.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(Id.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Username == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(Username));
+            }
+            if ((Password == null)) {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[3].Value = ((string)(Password));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

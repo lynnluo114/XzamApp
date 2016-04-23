@@ -68,5 +68,15 @@ namespace Xzam
         {
             Application.Exit();
         }
+
+        private void txtUserNLogin_TextChanged(object sender, EventArgs e)
+        {
+            txtUserNLogin.Text = string.Concat(txtUserNLogin.Text.Where(char.IsLetterOrDigit));
+        }
+
+        private void txtPasswordLogin_TextChanged(object sender, EventArgs e)
+        {
+            txtPasswordLogin.Text = string.Concat(txtPasswordLogin.Text.Where(char.IsLetterOrDigit));
+        }
     }
 }
